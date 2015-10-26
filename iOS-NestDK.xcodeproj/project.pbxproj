@@ -10,6 +10,14 @@
 		0418C5BE1BD0ADA90047643E /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0418C5BD1BD0ADA90047643E /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
 		210D46021BD4ABB100627A61 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210D46011BD4ABB100627A61 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */; settings = {ASSET_TAGS = (); }; };
+		2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134517E1BDE1AAD00BF5080 /* MEDynamicTransition.m */; settings = {ASSET_TAGS = (); }; };
+		2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451801BDE1AAD00BF5080 /* MEFoldAnimationController.m */; settings = {ASSET_TAGS = (); }; };
+		2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451821BDE1AAD00BF5080 /* MEMenuViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451841BDE1AAD00BF5080 /* MESettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451861BDE1AAD00BF5080 /* METransitions.m */; settings = {ASSET_TAGS = (); }; };
+		213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451881BDE1AAD00BF5080 /* METransitionsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */; settings = {ASSET_TAGS = (); }; };
+		213451941BDE1FB400BF5080 /* NestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451931BDE1FB400BF5080 /* NestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		75A2CD5BDFB6DA747E5B3A86 /* libPods-iOS-NestDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */; };
 		AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */; };
 		AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5C2195210CC00450E99 /* NestControlsViewController.m */; };
@@ -60,6 +68,22 @@
 		20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS-NestDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		210D46011BD4ABB100627A61 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2134517D1BDE1AAD00BF5080 /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDynamicTransition.h; sourceTree = "<group>"; };
+		2134517E1BDE1AAD00BF5080 /* MEDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDynamicTransition.m; sourceTree = "<group>"; };
+		2134517F1BDE1AAD00BF5080 /* MEFoldAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFoldAnimationController.h; sourceTree = "<group>"; };
+		213451801BDE1AAD00BF5080 /* MEFoldAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFoldAnimationController.m; sourceTree = "<group>"; };
+		213451811BDE1AAD00BF5080 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMenuViewController.h; sourceTree = "<group>"; };
+		213451821BDE1AAD00BF5080 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMenuViewController.m; sourceTree = "<group>"; };
+		213451831BDE1AAD00BF5080 /* MESettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MESettingsViewController.h; sourceTree = "<group>"; };
+		213451841BDE1AAD00BF5080 /* MESettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MESettingsViewController.m; sourceTree = "<group>"; };
+		213451851BDE1AAD00BF5080 /* METransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METransitions.h; sourceTree = "<group>"; };
+		213451861BDE1AAD00BF5080 /* METransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METransitions.m; sourceTree = "<group>"; };
+		213451871BDE1AAD00BF5080 /* METransitionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METransitionsViewController.h; sourceTree = "<group>"; };
+		213451881BDE1AAD00BF5080 /* METransitionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METransitionsViewController.m; sourceTree = "<group>"; };
+		213451891BDE1AAD00BF5080 /* MEZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEZoomAnimationController.h; sourceTree = "<group>"; };
+		2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEZoomAnimationController.m; sourceTree = "<group>"; };
+		213451921BDE1FB400BF5080 /* NestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestViewController.h; sourceTree = "<group>"; };
+		213451931BDE1FB400BF5080 /* NestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestViewController.m; sourceTree = "<group>"; };
 		AF26D5BE1951EC8C00450E99 /* NestWebViewAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestWebViewAuthController.h; sourceTree = "<group>"; };
 		AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestWebViewAuthController.m; sourceTree = "<group>"; };
 		AF26D5C1195210CC00450E99 /* NestControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestControlsViewController.h; sourceTree = "<group>"; };
@@ -153,6 +177,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2134517C1BDE1A5C00BF5080 /* DrawerKit */ = {
+			isa = PBXGroup;
+			children = (
+				2134517D1BDE1AAD00BF5080 /* MEDynamicTransition.h */,
+				2134517E1BDE1AAD00BF5080 /* MEDynamicTransition.m */,
+				2134517F1BDE1AAD00BF5080 /* MEFoldAnimationController.h */,
+				213451801BDE1AAD00BF5080 /* MEFoldAnimationController.m */,
+				213451811BDE1AAD00BF5080 /* MEMenuViewController.h */,
+				213451821BDE1AAD00BF5080 /* MEMenuViewController.m */,
+				213451831BDE1AAD00BF5080 /* MESettingsViewController.h */,
+				213451841BDE1AAD00BF5080 /* MESettingsViewController.m */,
+				213451851BDE1AAD00BF5080 /* METransitions.h */,
+				213451861BDE1AAD00BF5080 /* METransitions.m */,
+				213451871BDE1AAD00BF5080 /* METransitionsViewController.h */,
+				213451881BDE1AAD00BF5080 /* METransitionsViewController.m */,
+				213451891BDE1AAD00BF5080 /* MEZoomAnimationController.h */,
+				2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */,
+			);
+			name = DrawerKit;
+			sourceTree = "<group>";
+		};
 		AF26D60B19522AC300450E99 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +250,7 @@
 		AFE721331950E7EF0082270D /* iOS-NestDK */ = {
 			isa = PBXGroup;
 			children = (
+				2134517C1BDE1A5C00BF5080 /* DrawerKit */,
 				2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */,
 				AFE7217D195108F70082270D /* UINavigationControllers */,
 				AFE721791950F4020082270D /* Nest API */,
@@ -267,6 +313,8 @@
 				AFE7215D1950E8470082270D /* NestConnectViewController.m */,
 				AF26D5C1195210CC00450E99 /* NestControlsViewController.h */,
 				AF26D5C2195210CC00450E99 /* NestControlsViewController.m */,
+				213451921BDE1FB400BF5080 /* NestViewController.h */,
+				213451931BDE1FB400BF5080 /* NestViewController.m */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -452,19 +500,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */,
 				AFE7215E1950E8470082270D /* NestConnectViewController.m in Sources */,
 				AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */,
+				2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */,
+				2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */,
 				AFE7213E1950E7F00082270D /* AppDelegate.m in Sources */,
 				AFE721661950E8890082270D /* UIColor+Custom.m in Sources */,
 				AF9CCB351954FC7200EE6D38 /* FirebaseManager.m in Sources */,
+				213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */,
+				213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */,
+				213451941BDE1FB400BF5080 /* NestViewController.m in Sources */,
 				AF7BD6BE195DEFB500296A8C /* Constants.m in Sources */,
 				AFE7213A1950E7F00082270D /* main.m in Sources */,
+				2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */,
 				AF26D60E19522AF100450E99 /* ThermostatView.m in Sources */,
 				AFE721801951090B0082270D /* MainNavigationController.m in Sources */,
 				AFE721781950F3FB0082270D /* NestAuthManager.m in Sources */,
 				AF26D6111952517200450E99 /* NestThermostatManager.m in Sources */,
 				AFE7217C1950FE2D0082270D /* AccessToken.m in Sources */,
 				AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */,
+				2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */,
 				AF95AB381953281A006FD4A4 /* Thermostat.m in Sources */,
 				AF26D6141952606C00450E99 /* NestStructureManager.m in Sources */,
 			);
@@ -595,7 +651,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -620,7 +675,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
