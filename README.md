@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nest for iOS
 
 Sample iOS app demonstrating Nest Developer auth and simple thermostat control.
@@ -23,3 +24,5 @@ See [CONTRIBUTING](CONTRIBUTING.md) for more information on how to get started.
 ## License
 
 Apache 2.0 - See [LICENSE](LICENSE) for more information.
+=======
+# Nest
