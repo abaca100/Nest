@@ -24,6 +24,7 @@
 #import "MEMenuViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "MainNavigationController.h"
+#import "NestStructures.h"
 
 @interface MEMenuViewController ()
 {
@@ -31,6 +32,7 @@
 }
 
 @property (nonatomic, strong) NSArray *menuItems;
+@property (nonatomic, strong) NSArray *structures;
 @property (nonatomic, strong) UINavigationController *transitionsNavigationController;
 @end
 
@@ -44,14 +46,20 @@
     // We keep a reference to this instance so that we can go back to it without losing its state.
     self.transitionsNavigationController = (UINavigationController *)self.slidingViewController.topViewController;
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self blurBg];
-
-//    AppDelegate *kAppDelegate = [[UIApplication sharedApplication] delegate];
-//    moc = [kAppDelegate managedObjectContext];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+//    [self blurBg];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
+    _structures = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
 }
@@ -71,48 +79,40 @@
 
 #pragma mark - Properties
 
-- (NSArray *)menuItems
+- (NSArray *)structures
 {
-    if (_menuItems) return _menuItems;
+    if (_structures) return _structures;
     
-//    NSError *anyError;
-//    NSFetchRequest *r_tutor = [NSFetchRequest fetchRequestWithEntityName:@"Tutor"];
-//    NSArray *matchingTutor = [moc executeFetchRequest:r_tutor error:&anyError];
-//
-//    for (int i=0; i<[matchingTutor count]; i++)
-//    {
-//        Tutor *t = matchingTutor[i];
-//        NSLog(@"%@ - %@", t.sid, t.last_name);
-//    }
-//    _menuItems = matchingTutor;
-//    NSLog(@"%lu",(unsigned long)[matchingTutor count]);
-    _menuItems = @[@"Your Move",
-                   @"Their Move",
-                   @"Won Games",
-                   @"Lost Games",
-                   @"Options"];
+    NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
+    _structures = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
     
-    return _menuItems;
+    return _structures;
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.menuItems.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [_structures count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NestStructures *nest = _structures[section];
+    return [nest.devices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *t1 = self.menuItems[indexPath.row];
-
     static NSString *CellIdentifier = @"MenuCell";
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell setBackgroundColor:[UIColor clearColor]];
-    cell.textLabel.text = t1;
     
-//    NSString *url = [NSString stringWithFormat:BaseURL, t1.img];
-//    [cell.imageView setImageWithURL:[NSURL URLWithString: url]];
-//    [self maskProfileImage:cell.imageView];
+    NestStructures *nest = _structures[indexPath.section];
+    NSDictionary *dict = nest.devices[indexPath.row];
+    NSArray *values = [dict allValues];
+    cell.textLabel.text = values[0];
     
     return cell;
 }

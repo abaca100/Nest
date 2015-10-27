@@ -23,18 +23,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Set the NestAuthManager's client ID and client Secret
     [[NestAuthManager sharedManager] setClientId:NestClientID];
     [[NestAuthManager sharedManager] setClientSecret:NestClientSecret];
     
     // Set the main navigation controller
-    MainNavigationController *mnc = [[MainNavigationController alloc] init];
-    [self.window setRootViewController:mnc];
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+//    MainNavigationController *mnc = [[MainNavigationController alloc] init];
+//    [self.window setRootViewController:mnc];
+//    
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 

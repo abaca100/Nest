@@ -7,16 +7,22 @@
 //
 
 #import "NestViewController.h"
+//#import "NestThermostatManager.h"
+#import "NestStructureManager.h"
+#import "Thermostat.h"
+#import "NestStructures.h"
 
 #import "UIViewController+ECSlidingViewController.h"
 #import "MEDynamicTransition.h"
 #import "METransitions.h"
 
-@interface NestViewController ()
+@interface NestViewController () <NestStructureManagerDelegate>
 
 @property (nonatomic, strong) METransitions *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
-@property (nonatomic, strong) NSNumber *badgeCount;
+
+@property (nonatomic, strong) NestStructureManager *nestStructureManager;
+@property (nonatomic, strong) IBOutlet UITextView *struc;
 
 @end
 
@@ -25,6 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"Nest Development";
+
+    // Get the initial structure
+    self.nestStructureManager = [[NestStructureManager alloc] init];
+    [self.nestStructureManager setDelegate:self];
+    [self.nestStructureManager initialize];
+    
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +81,62 @@
 - (IBAction)menuButtonTapped:(id)sender
 {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+
+
+#pragma mark - NestStructureManagerDelegate Methods
+
+/**
+ * Called from NestStructureManagerDelegate, lets the
+ * controller know the structure has changed.
+ * @param structure The updated structure.
+ */
+- (void)structureUpdated:(NSDictionary *)structure
+{
+//    NSMutableString *s = [[NSMutableString alloc] initWithCapacity:0];
+//    [structure enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+//        //NSLog(@"%@ = %@", key, object);
+//        [s appendString:object];
+//    }];
+    NSLog(@"structure=%@", structure);
+}
+
+- (void)structureArray:(NSArray *)structure
+{
+    NSMutableString *s = [[NSMutableString alloc] initWithCapacity:0];
+    for (int k=0; k<structure.count; k++) {
+        NestStructures *n = structure[k];
+        [s appendString:@"Data Model:\n\t"];
+//        [s appendString:n.structureId];
+//        [s appendString:@"\n\t"];
+        [s appendString:n.name];
+        [s appendString:@"\n\t"];
+        [s appendString:n.country_code];
+        [s appendString:@"\n\t"];
+        [s appendString:n.time_zone];
+        [s appendString:@"\n\t"];
+        
+        [s appendString:@"Devices:\n"];
+        for (int i=0; i<n.devices.count; i++) {
+            [s appendString:@"\t\t"];
+            
+            NSArray *dev1 = [n.devices[i] allKeys];
+            NSArray *aObj = [n.devices[i] objectForKey:dev1[0]];
+            
+            [s appendString:[NSString stringWithFormat:@"%@: %lu", dev1[0], aObj.count]];
+            [s appendString:@"\n"];
+        }
+        
+        [s appendString:@"------------------------------\n\n"];
+    }
+    
+    NSData* objData = [NSKeyedArchiver archivedDataWithRootObject:structure];
+    [[NSUserDefaults standardUserDefaults] setObject:objData forKey:@"NEST"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    _struc.text = s;
+    
+    [SVProgressHUD dismiss];
 }
 
 @end

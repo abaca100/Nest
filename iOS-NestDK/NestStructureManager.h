@@ -17,6 +17,7 @@
 @protocol NestStructureManagerDelegate
 
 - (void)structureUpdated:(NSDictionary *)structure;
+- (void)structureArray:(NSArray *)structure;
 
 @end
 

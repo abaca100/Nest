@@ -18,6 +18,7 @@
 #import "Thermostat.h"
 #import "NestAuthManager.h"
 #import "FirebaseManager.h"
+#import "NestStructures.h"
 
 @implementation NestStructureManager
 
@@ -40,6 +41,7 @@
 {
     NSLog(@"%@", structure);
     NSArray *thermostats = [self thermostatsForStructure:structure];
+    NSArray *models = [self nestStructure:structure];
     
     NSMutableDictionary *returnStructure = [[NSMutableDictionary alloc] init];
     
@@ -48,7 +50,57 @@
     }
     
     [self.delegate structureUpdated:returnStructure];
+    
+    
+    [self.delegate structureArray:models];
 }
+
+- (NSArray *)nestStructure:(NSDictionary *)structure
+{
+    NSMutableArray *m = [[NSMutableArray alloc] initWithCapacity:0];
+    for( NSString *aKey in [structure allKeys] )
+    {
+        NestStructures *nest = [[NestStructures alloc] init];
+        NSDictionary *dict = [structure objectForKey:aKey];
+        
+        nest.structureId = [dict objectForKey:@"structure_id"];
+        nest.name = [dict objectForKey:@"name"];
+        nest.country_code = [dict objectForKey:@"country_code"];
+        nest.time_zone = [dict objectForKey:@"time_zone"];
+        
+        for( NSString *key in [dict allKeys] )
+        {
+            if ([@"away" isEqualToString:key])
+                continue;
+            
+            if ([@"structure_id" isEqualToString:key])
+                continue;
+            
+            if ([@"name" isEqualToString:key])
+                continue;
+            
+            if ([@"country_code" isEqualToString:key])
+                continue;
+            
+            if ([@"time_zone" isEqualToString:key])
+                continue;
+            
+            if ([@"wheres" isEqualToString:key])
+                continue;
+
+            if (nest.devices == nil) {
+                nest.devices = [[NSMutableArray alloc] initWithCapacity:0];
+            }
+//            NSLog(@"%@ - %@", key, [dict objectForKey:key]);
+//            NSDictionary *d2 = @{key : [dict objectForKey:key]};
+            [nest.devices addObject:@{key : [dict objectForKey:key]}];
+        }
+        [m addObject:nest];
+    }
+    
+    return m;
+}
+
 
 /**
  * Create new thermostats for the given structure

@@ -18,6 +18,7 @@
 		213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451881BDE1AAD00BF5080 /* METransitionsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */; settings = {ASSET_TAGS = (); }; };
 		213451941BDE1FB400BF5080 /* NestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451931BDE1FB400BF5080 /* NestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		213451971BDF527E00BF5080 /* NestStructures.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451961BDF527E00BF5080 /* NestStructures.m */; settings = {ASSET_TAGS = (); }; };
 		75A2CD5BDFB6DA747E5B3A86 /* libPods-iOS-NestDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */; };
 		AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */; };
 		AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5C2195210CC00450E99 /* NestControlsViewController.m */; };
@@ -84,6 +85,8 @@
 		2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEZoomAnimationController.m; sourceTree = "<group>"; };
 		213451921BDE1FB400BF5080 /* NestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestViewController.h; sourceTree = "<group>"; };
 		213451931BDE1FB400BF5080 /* NestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestViewController.m; sourceTree = "<group>"; };
+		213451951BDF527E00BF5080 /* NestStructures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestStructures.h; sourceTree = "<group>"; };
+		213451961BDF527E00BF5080 /* NestStructures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestStructures.m; sourceTree = "<group>"; };
 		AF26D5BE1951EC8C00450E99 /* NestWebViewAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestWebViewAuthController.h; sourceTree = "<group>"; };
 		AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestWebViewAuthController.m; sourceTree = "<group>"; };
 		AF26D5C1195210CC00450E99 /* NestControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestControlsViewController.h; sourceTree = "<group>"; };
@@ -250,8 +253,8 @@
 		AFE721331950E7EF0082270D /* iOS-NestDK */ = {
 			isa = PBXGroup;
 			children = (
-				2134517C1BDE1A5C00BF5080 /* DrawerKit */,
 				2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */,
+				2134517C1BDE1A5C00BF5080 /* DrawerKit */,
 				AFE7217D195108F70082270D /* UINavigationControllers */,
 				AFE721791950F4020082270D /* Nest API */,
 				AF26D60B19522AC300450E99 /* UIViews */,
@@ -324,18 +327,20 @@
 			children = (
 				AF9CCB331954FC7200EE6D38 /* FirebaseManager.h */,
 				AF9CCB341954FC7200EE6D38 /* FirebaseManager.m */,
-				AF26D60F1952517200450E99 /* NestThermostatManager.h */,
-				AF26D6101952517200450E99 /* NestThermostatManager.m */,
 				AF26D6121952606C00450E99 /* NestStructureManager.h */,
 				AF26D6131952606C00450E99 /* NestStructureManager.m */,
+				AF26D60F1952517200450E99 /* NestThermostatManager.h */,
+				AF26D6101952517200450E99 /* NestThermostatManager.m */,
+				AF95AB361953281A006FD4A4 /* Thermostat.h */,
+				AF95AB371953281A006FD4A4 /* Thermostat.m */,
+				213451951BDF527E00BF5080 /* NestStructures.h */,
+				213451961BDF527E00BF5080 /* NestStructures.m */,
 				AFE721761950F3FB0082270D /* NestAuthManager.h */,
 				AFE721771950F3FB0082270D /* NestAuthManager.m */,
 				AF26D5BE1951EC8C00450E99 /* NestWebViewAuthController.h */,
 				AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */,
 				AFE7217A1950FE2D0082270D /* AccessToken.h */,
 				AFE7217B1950FE2D0082270D /* AccessToken.m */,
-				AF95AB361953281A006FD4A4 /* Thermostat.h */,
-				AF95AB371953281A006FD4A4 /* Thermostat.m */,
 			);
 			name = "Nest API";
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				AF26D60E19522AF100450E99 /* ThermostatView.m in Sources */,
 				AFE721801951090B0082270D /* MainNavigationController.m in Sources */,
 				AFE721781950F3FB0082270D /* NestAuthManager.m in Sources */,
+				213451971BDF527E00BF5080 /* NestStructures.m in Sources */,
 				AF26D6111952517200450E99 /* NestThermostatManager.m in Sources */,
 				AFE7217C1950FE2D0082270D /* AccessToken.m in Sources */,
 				AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */,

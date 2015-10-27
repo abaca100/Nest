@@ -40,8 +40,8 @@
         NestConnectViewController *nestConnectViewController = [[NestConnectViewController alloc] init];
         self.viewControllers = [NSArray arrayWithObject:nestConnectViewController];
     } else {
-        //NestControlsViewController *nestControlsViewController = [[NestControlsViewController alloc] init];
-        NestViewController *nestControlsViewController = [[NestViewController alloc] init];
+        NestControlsViewController *nestControlsViewController = [[NestControlsViewController alloc] init];
+        //NestViewController *nestControlsViewController = [[NestViewController alloc] init];
         self.viewControllers = [NSArray arrayWithObject:nestControlsViewController];
     }
 }
