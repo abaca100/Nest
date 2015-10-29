@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *country_code;
 @property (nonatomic, strong) NSString *time_zone;
 @property (nonatomic, strong) NSMutableArray *devices;
+@property (nonatomic, strong) NSMutableDictionary *wheres;
 
 @end

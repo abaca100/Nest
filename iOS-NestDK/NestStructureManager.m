@@ -63,10 +63,26 @@
         NestStructures *nest = [[NestStructures alloc] init];
         NSDictionary *dict = [structure objectForKey:aKey];
         
+        if (nest.wheres == nil) {
+            nest.wheres = [[NSMutableDictionary alloc] initWithCapacity:0];
+        }
+        
         nest.structureId = [dict objectForKey:@"structure_id"];
         nest.name = [dict objectForKey:@"name"];
         nest.country_code = [dict objectForKey:@"country_code"];
         nest.time_zone = [dict objectForKey:@"time_zone"];
+        
+        NSDictionary *wheres = [dict objectForKey:@"wheres"];
+        NSArray *keys = [wheres allKeys];
+        for (int x=0; x<keys.count; x++)
+        {
+            NSDictionary *dict_wheres = [wheres objectForKey:keys[x]];
+            
+            NSString *k1 = keys[x];
+            NSString *v1 = [dict_wheres objectForKey:@"name"];
+            
+            [nest.wheres setObject:v1 forKey:k1];
+        }
         
         for( NSString *key in [dict allKeys] )
         {
@@ -88,12 +104,26 @@
             if ([@"wheres" isEqualToString:key])
                 continue;
 
-            if (nest.devices == nil) {
+            if (nest.devices == nil)
+            {
                 nest.devices = [[NSMutableArray alloc] initWithCapacity:0];
             }
-//            NSLog(@"%@ - %@", key, [dict objectForKey:key]);
-//            NSDictionary *d2 = @{key : [dict objectForKey:key]};
-            [nest.devices addObject:@{key : [dict objectForKey:key]}];
+            
+            NSArray *test = [dict objectForKey:key];
+            if ([test count] > 1)
+            {
+                long cnt = [test count];
+                for (int y=0; y<cnt; y++)
+                {
+                    NSString *s = [NSString stringWithFormat:@"%@",[[dict objectForKey:key] objectAtIndex:y]];
+                    [nest.devices addObject:@{key : s}];
+                }
+            }
+            else
+            {
+                NSString *s = [NSString stringWithFormat:@"%@",[[dict objectForKey:key] objectAtIndex:0]];
+                [nest.devices addObject:@{key : s}];
+            }
         }
         [m addObject:nest];
     }

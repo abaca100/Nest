@@ -25,6 +25,8 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "MainNavigationController.h"
 #import "NestStructures.h"
+#import "ThermosViewController.h"
+#import "NestViewController.h"
 
 @interface MEMenuViewController ()
 {
@@ -32,7 +34,6 @@
 }
 
 @property (nonatomic, strong) NSArray *menuItems;
-@property (nonatomic, strong) NSArray *structures;
 @property (nonatomic, strong) UINavigationController *transitionsNavigationController;
 @end
 
@@ -46,27 +47,13 @@
     // We keep a reference to this instance so that we can go back to it without losing its state.
     self.transitionsNavigationController = (UINavigationController *)self.slidingViewController.topViewController;
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
-//    [self blurBg];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
-    _structures = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.view endEditing:YES];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self blurBg];
 }
 
 - (void)blurBg
 {
-    self.headbg.backgroundColor = [UIColor grayColor];
+    self.headbg.backgroundColor = [UIColor lightGrayColor];
     
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *visualEffectView;
@@ -76,53 +63,46 @@
     [self.headbg addSubview:visualEffectView];
 }
 
-
-#pragma mark - Properties
-
-- (NSArray *)structures
+- (void)viewWillAppear:(BOOL)animated
 {
-    if (_structures) return _structures;
+    [super viewWillAppear:animated];
     
     NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
-    _structures = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
-    
-    return _structures;
+    _menuItems = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
 }
+
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [_structures count];
+    return [_menuItems count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NestStructures *nest = _structures[section];
+    NestStructures *nest = _menuItems[section];
     return [nest.devices count];
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NestStructures *nest = _menuItems[section];
+    return nest.name;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MenuCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [cell setBackgroundColor:[UIColor clearColor]];
-    
-    NestStructures *nest = _structures[indexPath.section];
+
+    NestStructures *nest = _menuItems[indexPath.section];
     NSDictionary *dict = nest.devices[indexPath.row];
-    NSArray *values = [dict allValues];
-    cell.textLabel.text = values[0];
+    NSArray *values = [dict allKeys];
+    cell.textLabel.text = [NSString stringWithFormat:@"\t%@", values[0]];
     
     return cell;
-}
-
-- (void)maskProfileImage:(UIImageView *)imgV
-{
-    imgV.layer.cornerRadius = imgV.frame.size.width / 2;
-    imgV.layer.borderWidth = 0.8f;
-    imgV.layer.borderColor = [UIColor whiteColor].CGColor;
-    imgV.clipsToBounds = YES;
 }
 
 
@@ -135,11 +115,27 @@
     // dynamically so everything needs to start in a consistent state.
     self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
     
-//    Tutor *t1 = self.menuItems[indexPath.row];
-
-    if ([self.slidingViewController.topViewController.childViewControllers[0] isKindOfClass:[MainNavigationController class]])
+    NestStructures *nest = _menuItems[indexPath.section];
+    NSDictionary *dict = nest.devices[indexPath.row];
+    NSArray *values = [dict allKeys];
+    NSString *str = [NSString stringWithFormat:@"%@", values[0]];
+    
+//    if ([self.slidingViewController.topViewController.childViewControllers[0] isKindOfClass:[NestViewController class]])
+//    {
+//        self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"entry_point"];
+//    }
+    if ([@"thermostats" isEqualToString:str])
     {
-        //MainNavigationController *v1 = ((MainNavigationController *)self.slidingViewController.topViewController.childViewControllers[0]);
+        UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"itri_thermos"];
+        ThermosViewController *thermos = (ThermosViewController *)nc.topViewController;
+        NSString *thermostatsId = [NSString stringWithFormat:@"%@", [dict objectForKey:str]];
+        thermos.thermostatsId = thermostatsId;
+        NSLog(@"thermostatsId=%@", thermostatsId);
+        self.slidingViewController.topViewController = nc;
+    }
+    else
+    {
+        //self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"entry_point"];
     }
     
     [self.slidingViewController resetTopViewAnimated:YES];

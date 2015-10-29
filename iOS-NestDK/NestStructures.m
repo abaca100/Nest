@@ -18,6 +18,7 @@
     [encoder encodeObject:_time_zone forKey:@"time_zone"];
     [encoder encodeObject:_country_code forKey:@"country_code"];
     [encoder encodeObject:_devices forKey:@"devices"];
+    [encoder encodeObject:_wheres forKey:@"wheres"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -28,6 +29,7 @@
         _time_zone = [coder decodeObjectForKey:@"time_zone"];
         _country_code = [coder decodeObjectForKey:@"country_code"];
         _devices = [coder decodeObjectForKey:@"devices"];
+        _wheres = [coder decodeObjectForKey:@"wheres"];
     }
     return self;
 }

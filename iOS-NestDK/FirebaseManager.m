@@ -70,12 +70,13 @@
  */
 - (void)addSubscriptionToURL:(NSString *)URL withBlock:(SubscriptionBlock)block
 {
-    if ([self.subscribedURLs objectForKey:URL]) {
-        
+    if ([self.subscribedURLs objectForKey:URL])
+    {
         // Don't add another subscription
         block([self.subscribedURLs objectForKey:URL]);
-        
-    } else {
+    }
+    else
+    {
         Firebase *newFirebase = [self.rootFirebase childByAppendingPath:URL];
 
         [newFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -84,7 +85,6 @@
         }];
         
         [self.fireBi setObject:newFirebase forKey:URL];
-
     }
 }
 

@@ -6,8 +6,8 @@
 //  Copyright © 2015 Nest Labs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DrawerViewController.h"
 
-@interface NestViewController : UIViewController
+@interface NestViewController : DrawerViewController
 
 @end

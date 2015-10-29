@@ -26,6 +26,8 @@
 #define HAS_FAN @"has_fan"
 #define TARGET_TEMPERATURE_F @"target_temperature_f"
 #define AMBIENT_TEMPERATURE_F @"ambient_temperature_f"
+#define TARGET_TEMPERATURE_C @"target_temperature_c"
+#define AMBIENT_TEMPERATURE_C @"ambient_temperature_c"
 #define NAME_LONG @"name_long"
 #define THERMOSTAT_PATH @"devices/thermostats"
 
@@ -38,7 +40,12 @@
  */
 - (void)beginSubscriptionForThermostat:(Thermostat *)thermostat
 {
-    [[FirebaseManager sharedManager] addSubscriptionToURL:[NSString stringWithFormat:@"devices/thermostats/%@/", thermostat.thermostatId] withBlock:^(FDataSnapshot *snapshot) {
+    NSString *sid = [NSString stringWithFormat:@"%@", thermostat.thermostatId];
+    NSString *str = [NSString stringWithFormat:@"devices/thermostats/%@/", sid];
+    //str = @"devices/thermostats";
+    NSLog(@"path=%@", str);
+    [[FirebaseManager sharedManager] addSubscriptionToURL:str withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"snapshot=%@", snapshot.value);
         [self updateThermostat:thermostat forStructure:snapshot.value];
     }];
 }
@@ -51,11 +58,18 @@
  */
 - (void)updateThermostat:(Thermostat *)thermostat forStructure:(NSDictionary *)structure
 {
+    NSLog(@"Thermost structure=%@", structure);
     if ([structure objectForKey:AMBIENT_TEMPERATURE_F]) {
         thermostat.ambientTemperatureF = [[structure objectForKey:AMBIENT_TEMPERATURE_F] integerValue];
     }
     if ([structure objectForKey:TARGET_TEMPERATURE_F]) {
         thermostat.targetTemperatureF = [[structure objectForKey:TARGET_TEMPERATURE_F] integerValue];
+    }
+    if ([structure objectForKey:AMBIENT_TEMPERATURE_C]) {
+        thermostat.ambientTemperatureC = [[structure objectForKey:AMBIENT_TEMPERATURE_C] integerValue];
+    }
+    if ([structure objectForKey:TARGET_TEMPERATURE_C]) {
+        thermostat.targetTemperatureC = [[structure objectForKey:TARGET_TEMPERATURE_C] integerValue];
     }
     if ([structure objectForKey:HAS_FAN]) {
         thermostat.hasFan = [[structure objectForKey:HAS_FAN] boolValue];
@@ -81,10 +95,13 @@
 {
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
     
-    [values setValue:[NSNumber numberWithInteger:thermostat.targetTemperatureF] forKey:TARGET_TEMPERATURE_F];
+    [values setValue:[NSNumber numberWithInteger:thermostat.targetTemperatureC] forKey:TARGET_TEMPERATURE_C];
     [values setValue:[NSNumber numberWithBool:thermostat.fanTimerActive] forKey:FAN_TIMER_ACTIVE];
     
-    [[FirebaseManager sharedManager] setValues:values forURL:[NSString stringWithFormat:@"%@/%@/", THERMOSTAT_PATH, thermostat.thermostatId]];
+    NSString *str = [NSString stringWithFormat:@"%@/%@/", THERMOSTAT_PATH, thermostat.thermostatId];
+    //NSString *str = [NSString stringWithFormat:@"%@/%@/", THERMOSTAT_PATH, @"NzI7ZPCEGKwInf9jB6OtOdAuWoZvpauT"];
+    NSLog(@"str=%@", str);
+    [[FirebaseManager sharedManager] setValues:values forURL:str];
     
 //    // IMPORTANT to set withLocalEvents to NO
 //    // Read more here: https://www.firebase.com/docs/transactions.html
@@ -96,7 +113,6 @@
 //            NSLog(@"Error: %@", error);
 //        }
 //    } withLocalEvents:NO];
-
 }
 
 

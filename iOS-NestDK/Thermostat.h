@@ -22,5 +22,7 @@
 @property (nonatomic) BOOL fanTimerActive;
 @property (nonatomic) NSInteger ambientTemperatureF;
 @property (nonatomic) NSInteger targetTemperatureF;
+@property (nonatomic) NSInteger ambientTemperatureC;
+@property (nonatomic) NSInteger targetTemperatureC;
 
 @end

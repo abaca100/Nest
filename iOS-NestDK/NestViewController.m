@@ -12,14 +12,7 @@
 #import "Thermostat.h"
 #import "NestStructures.h"
 
-#import "UIViewController+ECSlidingViewController.h"
-#import "MEDynamicTransition.h"
-#import "METransitions.h"
-
 @interface NestViewController () <NestStructureManagerDelegate>
-
-@property (nonatomic, strong) METransitions *transitions;
-@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 
 @property (nonatomic, strong) NestStructureManager *nestStructureManager;
 @property (nonatomic, strong) IBOutlet UITextView *struc;
@@ -57,31 +50,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - Properties
-
-- (METransitions *)transitions
-{
-    if (_transitions) return _transitions;
-    
-    _transitions = [[METransitions alloc] init];
-    
-    return _transitions;
-}
-
-- (UIPanGestureRecognizer *)dynamicTransitionPanGesture
-{
-    if (_dynamicTransitionPanGesture) return _dynamicTransitionPanGesture;
-    
-    _dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.transitions.dynamicTransition action:@selector(handlePanGesture:)];
-    
-    return _dynamicTransitionPanGesture;
-}
-
-- (IBAction)menuButtonTapped:(id)sender
-{
-    [self.slidingViewController anchorTopViewToRightAnimated:YES];
-}
 
 
 #pragma mark - NestStructureManagerDelegate Methods
@@ -121,9 +89,13 @@
             [s appendString:@"\t\t"];
             
             NSArray *dev1 = [n.devices[i] allKeys];
-            NSArray *aObj = [n.devices[i] objectForKey:dev1[0]];
+            //NSArray *aObj = [n.devices[i] objectForKey:dev1[0]];
             
-            [s appendString:[NSString stringWithFormat:@"%@: %lu", dev1[0], aObj.count]];
+            //[s appendString:[NSString stringWithFormat:@"%@: %lu", dev1[0], aObj.count]];
+            
+//            NSString *x = [n.devices[i] objectForKey:dev1[0]];
+//            [s appendString:[NSString stringWithFormat:@"%@ - %@", dev1[0], x]];
+            [s appendString:[NSString stringWithFormat:@"%@", dev1[0]]];
             [s appendString:@"\n"];
         }
         
