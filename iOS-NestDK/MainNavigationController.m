@@ -47,8 +47,6 @@
                                                              bundle:nil];
         ECSlidingViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ECSliding"];
         self.viewControllers = [NSArray arrayWithObject:viewController];
-        
-        
     }
 }
 

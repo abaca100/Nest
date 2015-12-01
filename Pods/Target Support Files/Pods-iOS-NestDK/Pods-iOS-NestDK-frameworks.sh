@@ -82,14 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-iOS-NestDK/AFNetworking.framework"
-  install_framework "Pods-iOS-NestDK/ECSlidingViewController.framework"
-  install_framework "Pods-iOS-NestDK/SVProgressHUD.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-iOS-NestDK/AFNetworking.framework"
-  install_framework "Pods-iOS-NestDK/ECSlidingViewController.framework"
-  install_framework "Pods-iOS-NestDK/SVProgressHUD.framework"
-fi

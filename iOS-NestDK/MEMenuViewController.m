@@ -73,6 +73,13 @@
     
     NestStructures *struc = [[NestStructures alloc] init];
     struc.name = @"Hue";
+    NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"bridge", @"bridge", nil];
+    NSDictionary *dict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"light", @"light", nil];
+    struc.devices = [[NSMutableArray alloc] initWithCapacity:2];
+    struc.devices[0] = dict1;
+    struc.devices[1] = dict2;
+    
+    [_menuItems addObject:struc];
 }
 
 

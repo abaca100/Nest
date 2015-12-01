@@ -1,6 +1,6 @@
 
 #platform :ios, '8.0'
-use_frameworks!
+#use_frameworks!
 
 target 'iOS-NestDK' do
     pod 'AFNetworking', '~> 2.5'

@@ -24,7 +24,7 @@
 		213451A01BE2151B00BF5080 /* SmokeCoAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134519F1BE2151B00BF5080 /* SmokeCoAlarmViewController.m */; };
 		213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A21BE215C800BF5080 /* SmokeCoAlarm.m */; };
 		213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */; };
-		7C9A62C12D5C84F3070A16B7 /* Pods_iOS_NestDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */; };
+		36E87947F84FCA450B0A3A52 /* libPods-iOS-NestDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3CDFFFF59DE91435DC337F /* libPods-iOS-NestDK.a */; };
 		976844D51BFD73E600EA889A /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D41BFD73E600EA889A /* Camera.m */; };
 		976844D81BFD758B00EA889A /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D71BFD758B00EA889A /* CameraViewController.m */; };
 		976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844DA1BFD79FB00EA889A /* NestCameraManager.m */; };
@@ -122,7 +122,6 @@
 		213451A21BE215C800BF5080 /* SmokeCoAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeCoAlarm.m; sourceTree = "<group>"; };
 		213451A41BE2171200BF5080 /* NestSmokeCoAlarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestSmokeCoAlarmManager.h; sourceTree = "<group>"; };
 		213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestSmokeCoAlarmManager.m; sourceTree = "<group>"; };
-		6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_NestDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		976844D31BFD73E600EA889A /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		976844D41BFD73E600EA889A /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		976844D61BFD758B00EA889A /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		AFE7217B1950FE2D0082270D /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		AFE7217E1951090B0082270D /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		AFE7217F1951090B0082270D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		BC3CDFFFF59DE91435DC337F /* libPods-iOS-NestDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS-NestDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4B8CDBC9DA706B5833DBB4 /* Pods-iOS-NestDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-NestDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-NestDK/Pods-iOS-NestDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,7 +226,7 @@
 				AFE721321950E7EF0082270D /* UIKit.framework in Frameworks */,
 				AFE7212E1950E7EF0082270D /* Foundation.framework in Frameworks */,
 				97D6A7D71C0D680A000F403E /* HueSDK_iOS.framework in Frameworks */,
-				7C9A62C12D5C84F3070A16B7 /* Pods_iOS_NestDK.framework in Frameworks */,
+				36E87947F84FCA450B0A3A52 /* libPods-iOS-NestDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +392,7 @@
 				AFE7212F1950E7EF0082270D /* CoreGraphics.framework */,
 				AFE721311950E7EF0082270D /* UIKit.framework */,
 				AFE721461950E7F00082270D /* XCTest.framework */,
-				6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */,
+				BC3CDFFFF59DE91435DC337F /* libPods-iOS-NestDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -847,6 +847,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -871,6 +873,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

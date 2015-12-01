@@ -18,23 +18,35 @@
 #import "MainNavigationController.h"
 #import "NestAuthManager.h"
 #import "Constants.h"
+#import "NestConnectViewController.h"
+#import "NestAuthManager.h"
+#import "NestControlsViewController.h"
+#import "NestViewController.h"
+#import "ECSlidingViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Set the NestAuthManager's client ID and client Secret
     [[NestAuthManager sharedManager] setClientId:NestClientID];
     [[NestAuthManager sharedManager] setClientSecret:NestClientSecret];
     
-    // Set the main navigation controller
-//    MainNavigationController *mnc = [[MainNavigationController alloc] init];
-//    [self.window setRootViewController:mnc];
-//    
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    if (![[NestAuthManager sharedManager] isValidSession])
+    {
+        UINavigationController *mnc = [storyboard instantiateViewControllerWithIdentifier:@"nest_connect"];
+        [self.window setRootViewController:mnc];
+    }
+    else
+    {
+        ECSlidingViewController *mnc = [storyboard instantiateViewControllerWithIdentifier:@"ECSliding"];
+        [self.window setRootViewController:mnc];
+    }
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
