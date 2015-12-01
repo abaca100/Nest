@@ -1,0 +1,1 @@
+curl -X POST https://api.home.nest.com/oauth2/access_token?client_id=56693ba4-635d-4d6d-9794-9e580296e357&code=Y2TBTWN9&client_secret=589nhEwF2hrHVOFe3dDISpKuB&grant_type=authorization_code

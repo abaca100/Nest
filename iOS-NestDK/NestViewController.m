@@ -75,8 +75,6 @@
     for (int k=0; k<structure.count; k++) {
         NestStructures *n = structure[k];
         [s appendString:@"Data Model:\n\t"];
-//        [s appendString:n.structureId];
-//        [s appendString:@"\n\t"];
         [s appendString:n.name];
         [s appendString:@"\n\t"];
         [s appendString:n.country_code];
@@ -89,12 +87,6 @@
             [s appendString:@"\t\t"];
             
             NSArray *dev1 = [n.devices[i] allKeys];
-            //NSArray *aObj = [n.devices[i] objectForKey:dev1[0]];
-            
-            //[s appendString:[NSString stringWithFormat:@"%@: %lu", dev1[0], aObj.count]];
-            
-//            NSString *x = [n.devices[i] objectForKey:dev1[0]];
-//            [s appendString:[NSString stringWithFormat:@"%@ - %@", dev1[0], x]];
             [s appendString:[NSString stringWithFormat:@"%@", dev1[0]]];
             [s appendString:@"\n"];
         }

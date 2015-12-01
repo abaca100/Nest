@@ -20,8 +20,7 @@
 
 @interface NestWebViewAuthController () <UIWebViewDelegate>
 
-@property (nonatomic, strong) NSString *authURL;
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 
 @end
 
@@ -51,27 +50,27 @@
 /**
  * Setup the UI Elements.
  */
-- (void)loadView
-{
-    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    // Add a navbar to the top
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
-    [self.view addSubview:navBar];
-    
-    // Add some items to the navigation bar
-    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
-    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"Connect with Nest"];
-    navItem.leftBarButtonItem = bbi;
-    [navBar pushNavigationItem:navItem animated:YES];
-    
-    // Add a uiwebview to take up the entire view (beneath the nav bar)
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, 320, self.view.frame.size.height - 64)];
-    [self.webView setBackgroundColor:[UIColor nestBlue]];
-    [self.webView setDelegate:self];
-    [self.view addSubview:self.webView];
-}
+//- (void)loadView
+//{
+//    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [self.view setBackgroundColor:[UIColor whiteColor]];
+//    
+//    // Add a navbar to the top
+//    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
+//    [self.view addSubview:navBar];
+//    
+//    // Add some items to the navigation bar
+//    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+//    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"Connect with Nest"];
+//    navItem.leftBarButtonItem = bbi;
+//    [navBar pushNavigationItem:navItem animated:YES];
+//    
+//    // Add a uiwebview to take up the entire view (beneath the nav bar)
+//    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, 320, self.view.frame.size.height - 64)];
+//    [self.webView setBackgroundColor:[UIColor nestBlue]];
+//    [self.webView setDelegate:self];
+//    [self.view addSubview:self.webView];
+//}
 
 - (void)viewDidLoad
 {
@@ -81,6 +80,8 @@
     self.title = @"Connect With Nest";
     
     // Load the URL in the web view
+    [self.webView setBackgroundColor:[UIColor nestBlue]];
+    self.webView.delegate = self;
     [self loadAuthURL];
     
 }
@@ -98,21 +99,25 @@
  * Cancel button is hit.
  * @param sender The button that was hit.
  */
-- (void)cancel:(UIButton *)sender
+- (IBAction)cancel:(UIButton *)sender
 {
-    [self.delegate cancelButtonHit:sender];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 #pragma mark UIWebView Delegate Methods
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [SVProgressHUD dismiss];
 }
 
 /**
@@ -142,12 +147,13 @@
         NSArray *keyValueArray = [keyValue componentsSeparatedByString:EQUALS];
         
         // We found the code
-        if([[keyValueArray objectAtIndex:(0)] isEqualToString:@"code"]) {
-            
+        if([[keyValueArray objectAtIndex:(0)] isEqualToString:@"code"])
+        {
             // Send it to the delegate
             [self.delegate foundAuthorizationCode:[keyValueArray objectAtIndex:1]];
-            
-		} else {
+		}
+        else
+        {
 			NSLog(@"Error retrieving the authorization code.");
 		}
 

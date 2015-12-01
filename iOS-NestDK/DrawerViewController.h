@@ -11,5 +11,7 @@
 @interface DrawerViewController : UIViewController
 
 @property (nonatomic, strong) NSString *thermostatsId;
+@property (nonatomic, strong) NSString *camerasId;
+@property (nonatomic, strong) NSString *smokecoalarmsId;
 
 @end

@@ -19,6 +19,7 @@
 #import "NestAuthManager.h"
 #import "NestControlsViewController.h"
 #import "NestViewController.h"
+#import "ECSlidingViewController.h"
 
 @interface MainNavigationController ()
 
@@ -40,9 +41,14 @@
         NestConnectViewController *nestConnectViewController = [[NestConnectViewController alloc] init];
         self.viewControllers = [NSArray arrayWithObject:nestConnectViewController];
     } else {
-        NestControlsViewController *nestControlsViewController = [[NestControlsViewController alloc] init];
-        //NestViewController *nestControlsViewController = [[NestViewController alloc] init];
-        self.viewControllers = [NSArray arrayWithObject:nestControlsViewController];
+        //NestControlsViewController *nestControlsViewController = [[NestControlsViewController alloc] init];
+        //self.viewControllers = [NSArray arrayWithObject:nestControlsViewController];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                             bundle:nil];
+        ECSlidingViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ECSliding"];
+        self.viewControllers = [NSArray arrayWithObject:viewController];
+        
+        
     }
 }
 

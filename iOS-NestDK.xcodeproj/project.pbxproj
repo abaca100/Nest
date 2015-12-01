@@ -7,24 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0418C5BE1BD0ADA90047643E /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0418C5BD1BD0ADA90047643E /* Firebase.framework */; settings = {ASSET_TAGS = (); }; };
-		210D46021BD4ABB100627A61 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210D46011BD4ABB100627A61 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */; settings = {ASSET_TAGS = (); }; };
-		2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134517E1BDE1AAD00BF5080 /* MEDynamicTransition.m */; settings = {ASSET_TAGS = (); }; };
-		2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451801BDE1AAD00BF5080 /* MEFoldAnimationController.m */; settings = {ASSET_TAGS = (); }; };
-		2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451821BDE1AAD00BF5080 /* MEMenuViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451841BDE1AAD00BF5080 /* MESettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451861BDE1AAD00BF5080 /* METransitions.m */; settings = {ASSET_TAGS = (); }; };
-		213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451881BDE1AAD00BF5080 /* METransitionsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */; settings = {ASSET_TAGS = (); }; };
-		213451941BDE1FB400BF5080 /* NestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451931BDE1FB400BF5080 /* NestViewController.m */; settings = {ASSET_TAGS = (); }; };
-		213451971BDF527E00BF5080 /* NestStructures.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451961BDF527E00BF5080 /* NestStructures.m */; settings = {ASSET_TAGS = (); }; };
-		2134519A1BE086A500BF5080 /* ThermosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451991BE086A500BF5080 /* ThermosViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2134519D1BE0893A00BF5080 /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134519C1BE0893A00BF5080 /* DrawerViewController.m */; settings = {ASSET_TAGS = (); }; };
-		213451A01BE2151B00BF5080 /* SmokeCoAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134519F1BE2151B00BF5080 /* SmokeCoAlarmViewController.m */; settings = {ASSET_TAGS = (); }; };
-		213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A21BE215C800BF5080 /* SmokeCoAlarm.m */; settings = {ASSET_TAGS = (); }; };
-		213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */; settings = {ASSET_TAGS = (); }; };
-		75A2CD5BDFB6DA747E5B3A86 /* libPods-iOS-NestDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */; };
+		0418C5BE1BD0ADA90047643E /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0418C5BD1BD0ADA90047643E /* Firebase.framework */; };
+		210D46021BD4ABB100627A61 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210D46011BD4ABB100627A61 /* Launch Screen.storyboard */; };
+		2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */; };
+		2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134517E1BDE1AAD00BF5080 /* MEDynamicTransition.m */; };
+		2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451801BDE1AAD00BF5080 /* MEFoldAnimationController.m */; };
+		2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451821BDE1AAD00BF5080 /* MEMenuViewController.m */; };
+		2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451841BDE1AAD00BF5080 /* MESettingsViewController.m */; };
+		2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451861BDE1AAD00BF5080 /* METransitions.m */; };
+		213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451881BDE1AAD00BF5080 /* METransitionsViewController.m */; };
+		213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */; };
+		213451941BDE1FB400BF5080 /* NestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451931BDE1FB400BF5080 /* NestViewController.m */; };
+		213451971BDF527E00BF5080 /* NestStructures.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451961BDF527E00BF5080 /* NestStructures.m */; };
+		2134519A1BE086A500BF5080 /* ThermosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451991BE086A500BF5080 /* ThermosViewController.m */; };
+		2134519D1BE0893A00BF5080 /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134519C1BE0893A00BF5080 /* DrawerViewController.m */; };
+		213451A01BE2151B00BF5080 /* SmokeCoAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134519F1BE2151B00BF5080 /* SmokeCoAlarmViewController.m */; };
+		213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A21BE215C800BF5080 /* SmokeCoAlarm.m */; };
+		213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */; };
+		7C9A62C12D5C84F3070A16B7 /* Pods_iOS_NestDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */; };
+		976844D51BFD73E600EA889A /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D41BFD73E600EA889A /* Camera.m */; };
+		976844D81BFD758B00EA889A /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D71BFD758B00EA889A /* CameraViewController.m */; };
+		976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844DA1BFD79FB00EA889A /* NestCameraManager.m */; };
+		97D6A7D71C0D680A000F403E /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */; };
+		97D6A7DE1C0D68B8000F403E /* PHControlLightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */; };
+		97D6A7DF1C0D68B8000F403E /* PHControlLightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */; };
+		97D6A7F11C0D6B06000F403E /* PHBridgePushLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7EC1C0D6B06000F403E /* PHBridgePushLinkViewController.m */; };
+		97D6A7F21C0D6B06000F403E /* PHBridgePushLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7ED1C0D6B06000F403E /* PHBridgePushLinkViewController.xib */; };
+		97D6A7F31C0D6B06000F403E /* PHBridgeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7EF1C0D6B06000F403E /* PHBridgeSelectionViewController.m */; };
+		97D6A7F41C0D6B06000F403E /* PHBridgeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7F01C0D6B06000F403E /* PHBridgeSelectionViewController.xib */; };
+		97D6A7FA1C0D6B7E000F403E /* PHLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7F81C0D6B7E000F403E /* PHLoadingViewController.m */; };
+		97D6A7FB1C0D6B7E000F403E /* PHLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7F91C0D6B7E000F403E /* PHLoadingViewController.xib */; };
+		97D6A7FE1C0D6B91000F403E /* press_smartbridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7FC1C0D6B91000F403E /* press_smartbridge.png */; };
+		97D6A7FF1C0D6B91000F403E /* press_smartbridge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7FD1C0D6B91000F403E /* press_smartbridge@2x.png */; };
+		97D6A80F1C0D76EB000F403E /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A8061C0D76EB000F403E /* DDAbstractDatabaseLogger.m */; };
+		97D6A8101C0D76EB000F403E /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A8081C0D76EB000F403E /* DDASLLogger.m */; };
+		97D6A8111C0D76EB000F403E /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A80A1C0D76EB000F403E /* DDFileLogger.m */; };
+		97D6A8121C0D76EB000F403E /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A80C1C0D76EB000F403E /* DDLog.m */; };
+		97D6A8131C0D76EB000F403E /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A80E1C0D76EB000F403E /* DDTTYLogger.m */; };
+		97D6A8191C0D770D000F403E /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A8161C0D770D000F403E /* ContextFilterLogFormatter.m */; };
+		97D6A81A1C0D770D000F403E /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A8181C0D770D000F403E /* DispatchQueueLogFormatter.m */; };
 		AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */; };
 		AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D5C2195210CC00450E99 /* NestControlsViewController.m */; };
 		AF26D60E19522AF100450E99 /* ThermostatView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF26D60D19522AF100450E99 /* ThermostatView.m */; };
@@ -71,7 +92,6 @@
 /* Begin PBXFileReference section */
 		005D3A1FB1C0B1C0CA734A3E /* Pods-iOS-NestDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-NestDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-NestDK/Pods-iOS-NestDK.debug.xcconfig"; sourceTree = "<group>"; };
 		0418C5BD1BD0ADA90047643E /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
-		20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS-NestDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		210D46011BD4ABB100627A61 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2134517D1BDE1AAD00BF5080 /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDynamicTransition.h; sourceTree = "<group>"; };
@@ -102,6 +122,42 @@
 		213451A21BE215C800BF5080 /* SmokeCoAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeCoAlarm.m; sourceTree = "<group>"; };
 		213451A41BE2171200BF5080 /* NestSmokeCoAlarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestSmokeCoAlarmManager.h; sourceTree = "<group>"; };
 		213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestSmokeCoAlarmManager.m; sourceTree = "<group>"; };
+		6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_NestDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		976844D31BFD73E600EA889A /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		976844D41BFD73E600EA889A /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		976844D61BFD758B00EA889A /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		976844D71BFD758B00EA889A /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		976844D91BFD79FB00EA889A /* NestCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestCameraManager.h; sourceTree = "<group>"; };
+		976844DA1BFD79FB00EA889A /* NestCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestCameraManager.m; sourceTree = "<group>"; };
+		97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
+		97D6A7DB1C0D68B8000F403E /* PHControlLightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHControlLightsViewController.h; sourceTree = "<group>"; };
+		97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHControlLightsViewController.m; sourceTree = "<group>"; };
+		97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHControlLightsViewController.xib; sourceTree = "<group>"; };
+		97D6A7EB1C0D6B06000F403E /* PHBridgePushLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBridgePushLinkViewController.h; sourceTree = "<group>"; };
+		97D6A7EC1C0D6B06000F403E /* PHBridgePushLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBridgePushLinkViewController.m; sourceTree = "<group>"; };
+		97D6A7ED1C0D6B06000F403E /* PHBridgePushLinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBridgePushLinkViewController.xib; sourceTree = "<group>"; };
+		97D6A7EE1C0D6B06000F403E /* PHBridgeSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBridgeSelectionViewController.h; sourceTree = "<group>"; };
+		97D6A7EF1C0D6B06000F403E /* PHBridgeSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBridgeSelectionViewController.m; sourceTree = "<group>"; };
+		97D6A7F01C0D6B06000F403E /* PHBridgeSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBridgeSelectionViewController.xib; sourceTree = "<group>"; };
+		97D6A7F71C0D6B7E000F403E /* PHLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHLoadingViewController.h; sourceTree = "<group>"; };
+		97D6A7F81C0D6B7E000F403E /* PHLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHLoadingViewController.m; sourceTree = "<group>"; };
+		97D6A7F91C0D6B7E000F403E /* PHLoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHLoadingViewController.xib; sourceTree = "<group>"; };
+		97D6A7FC1C0D6B91000F403E /* press_smartbridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = press_smartbridge.png; sourceTree = "<group>"; };
+		97D6A7FD1C0D6B91000F403E /* press_smartbridge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "press_smartbridge@2x.png"; sourceTree = "<group>"; };
+		97D6A8051C0D76EB000F403E /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		97D6A8061C0D76EB000F403E /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		97D6A8071C0D76EB000F403E /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		97D6A8081C0D76EB000F403E /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		97D6A8091C0D76EB000F403E /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		97D6A80A1C0D76EB000F403E /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		97D6A80B1C0D76EB000F403E /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		97D6A80C1C0D76EB000F403E /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		97D6A80D1C0D76EB000F403E /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		97D6A80E1C0D76EB000F403E /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		97D6A8151C0D770D000F403E /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		97D6A8161C0D770D000F403E /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		97D6A8171C0D770D000F403E /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		97D6A8181C0D770D000F403E /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		AF26D5BE1951EC8C00450E99 /* NestWebViewAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestWebViewAuthController.h; sourceTree = "<group>"; };
 		AF26D5BF1951EC8C00450E99 /* NestWebViewAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestWebViewAuthController.m; sourceTree = "<group>"; };
 		AF26D5C1195210CC00450E99 /* NestControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestControlsViewController.h; sourceTree = "<group>"; };
@@ -169,7 +225,8 @@
 				AFE721301950E7EF0082270D /* CoreGraphics.framework in Frameworks */,
 				AFE721321950E7EF0082270D /* UIKit.framework in Frameworks */,
 				AFE7212E1950E7EF0082270D /* Foundation.framework in Frameworks */,
-				75A2CD5BDFB6DA747E5B3A86 /* libPods-iOS-NestDK.a in Frameworks */,
+				97D6A7D71C0D680A000F403E /* HueSDK_iOS.framework in Frameworks */,
+				7C9A62C12D5C84F3070A16B7 /* Pods_iOS_NestDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +273,79 @@
 			name = DrawerKit;
 			sourceTree = "<group>";
 		};
+		97D6A7DA1C0D68A1000F403E /* HueQuickStart */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A7DB1C0D68B8000F403E /* PHControlLightsViewController.h */,
+				97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */,
+				97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */,
+			);
+			name = HueQuickStart;
+			sourceTree = "<group>";
+		};
+		97D6A7E01C0D6A8A000F403E /* HueSDKWizard */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A7F61C0D6B3C000F403E /* Resources */,
+				97D6A7F51C0D6B27000F403E /* LoadingView */,
+				97D6A7EB1C0D6B06000F403E /* PHBridgePushLinkViewController.h */,
+				97D6A7EC1C0D6B06000F403E /* PHBridgePushLinkViewController.m */,
+				97D6A7ED1C0D6B06000F403E /* PHBridgePushLinkViewController.xib */,
+				97D6A7EE1C0D6B06000F403E /* PHBridgeSelectionViewController.h */,
+				97D6A7EF1C0D6B06000F403E /* PHBridgeSelectionViewController.m */,
+				97D6A7F01C0D6B06000F403E /* PHBridgeSelectionViewController.xib */,
+			);
+			name = HueSDKWizard;
+			sourceTree = "<group>";
+		};
+		97D6A7F51C0D6B27000F403E /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A7F71C0D6B7E000F403E /* PHLoadingViewController.h */,
+				97D6A7F81C0D6B7E000F403E /* PHLoadingViewController.m */,
+				97D6A7F91C0D6B7E000F403E /* PHLoadingViewController.xib */,
+			);
+			name = LoadingView;
+			sourceTree = "<group>";
+		};
+		97D6A7F61C0D6B3C000F403E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A7FC1C0D6B91000F403E /* press_smartbridge.png */,
+				97D6A7FD1C0D6B91000F403E /* press_smartbridge@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		97D6A8041C0D76C2000F403E /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A8141C0D76FD000F403E /* Extensions */,
+				97D6A8051C0D76EB000F403E /* DDAbstractDatabaseLogger.h */,
+				97D6A8061C0D76EB000F403E /* DDAbstractDatabaseLogger.m */,
+				97D6A8071C0D76EB000F403E /* DDASLLogger.h */,
+				97D6A8081C0D76EB000F403E /* DDASLLogger.m */,
+				97D6A8091C0D76EB000F403E /* DDFileLogger.h */,
+				97D6A80A1C0D76EB000F403E /* DDFileLogger.m */,
+				97D6A80B1C0D76EB000F403E /* DDLog.h */,
+				97D6A80C1C0D76EB000F403E /* DDLog.m */,
+				97D6A80D1C0D76EB000F403E /* DDTTYLogger.h */,
+				97D6A80E1C0D76EB000F403E /* DDTTYLogger.m */,
+			);
+			name = Lumberjack;
+			sourceTree = "<group>";
+		};
+		97D6A8141C0D76FD000F403E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				97D6A8151C0D770D000F403E /* ContextFilterLogFormatter.h */,
+				97D6A8161C0D770D000F403E /* ContextFilterLogFormatter.m */,
+				97D6A8171C0D770D000F403E /* DispatchQueueLogFormatter.h */,
+				97D6A8181C0D770D000F403E /* DispatchQueueLogFormatter.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		AF26D60B19522AC300450E99 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +378,8 @@
 		AFE7212C1950E7EF0082270D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97D6A8041C0D76C2000F403E /* Lumberjack */,
+				97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */,
 				0418C5BD1BD0ADA90047643E /* Firebase.framework */,
 				AFE721731950F2620082270D /* SystemConfiguration.framework */,
 				AFE7216F1950ED8B0082270D /* libc++.dylib */,
@@ -260,7 +392,7 @@
 				AFE7212F1950E7EF0082270D /* CoreGraphics.framework */,
 				AFE721311950E7EF0082270D /* UIKit.framework */,
 				AFE721461950E7F00082270D /* XCTest.framework */,
-				20D2CADCAF28A4EFFFC4FA5B /* libPods-iOS-NestDK.a */,
+				6903FF7049EA226D7CFCE14A /* Pods_iOS_NestDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +400,8 @@
 		AFE721331950E7EF0082270D /* iOS-NestDK */ = {
 			isa = PBXGroup;
 			children = (
+				97D6A7E01C0D6A8A000F403E /* HueSDKWizard */,
+				97D6A7DA1C0D68A1000F403E /* HueQuickStart */,
 				2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */,
 				2134517C1BDE1A5C00BF5080 /* DrawerKit */,
 				AFE7217D195108F70082270D /* UINavigationControllers */,
@@ -339,6 +473,8 @@
 				213451991BE086A500BF5080 /* ThermosViewController.m */,
 				2134519E1BE2151B00BF5080 /* SmokeCoAlarmViewController.h */,
 				2134519F1BE2151B00BF5080 /* SmokeCoAlarmViewController.m */,
+				976844D61BFD758B00EA889A /* CameraViewController.h */,
+				976844D71BFD758B00EA889A /* CameraViewController.m */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -366,6 +502,10 @@
 				213451A21BE215C800BF5080 /* SmokeCoAlarm.m */,
 				213451A41BE2171200BF5080 /* NestSmokeCoAlarmManager.h */,
 				213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */,
+				976844D31BFD73E600EA889A /* Camera.h */,
+				976844D41BFD73E600EA889A /* Camera.m */,
+				976844D91BFD79FB00EA889A /* NestCameraManager.h */,
+				976844DA1BFD79FB00EA889A /* NestCameraManager.m */,
 			);
 			name = "Nest API";
 			sourceTree = "<group>";
@@ -461,9 +601,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				210D46021BD4ABB100627A61 /* Launch Screen.storyboard in Resources */,
+				97D6A7FB1C0D6B7E000F403E /* PHLoadingViewController.xib in Resources */,
+				97D6A7F41C0D6B06000F403E /* PHBridgeSelectionViewController.xib in Resources */,
+				97D6A7FE1C0D6B91000F403E /* press_smartbridge.png in Resources */,
 				AFE721381950E7F00082270D /* InfoPlist.strings in Resources */,
+				97D6A7DF1C0D68B8000F403E /* PHControlLightsViewController.xib in Resources */,
 				2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */,
 				AFE721401950E7F00082270D /* Images.xcassets in Resources */,
+				97D6A7F21C0D6B06000F403E /* PHBridgePushLinkViewController.xib in Resources */,
+				97D6A7FF1C0D6B91000F403E /* press_smartbridge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,9 +677,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */,
+				97D6A8111C0D76EB000F403E /* DDFileLogger.m in Sources */,
 				AFE7215E1950E8470082270D /* NestConnectViewController.m in Sources */,
 				AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */,
 				2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */,
+				97D6A8101C0D76EB000F403E /* DDASLLogger.m in Sources */,
 				2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */,
 				AFE7213E1950E7F00082270D /* AppDelegate.m in Sources */,
 				AFE721661950E8890082270D /* UIColor+Custom.m in Sources */,
@@ -542,22 +690,34 @@
 				213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */,
 				213451941BDE1FB400BF5080 /* NestViewController.m in Sources */,
 				AF7BD6BE195DEFB500296A8C /* Constants.m in Sources */,
+				97D6A80F1C0D76EB000F403E /* DDAbstractDatabaseLogger.m in Sources */,
+				976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */,
 				AFE7213A1950E7F00082270D /* main.m in Sources */,
 				2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */,
 				2134519A1BE086A500BF5080 /* ThermosViewController.m in Sources */,
 				2134519D1BE0893A00BF5080 /* DrawerViewController.m in Sources */,
+				97D6A8121C0D76EB000F403E /* DDLog.m in Sources */,
+				97D6A8131C0D76EB000F403E /* DDTTYLogger.m in Sources */,
+				976844D51BFD73E600EA889A /* Camera.m in Sources */,
 				AF26D60E19522AF100450E99 /* ThermostatView.m in Sources */,
 				AFE721801951090B0082270D /* MainNavigationController.m in Sources */,
+				97D6A7F31C0D6B06000F403E /* PHBridgeSelectionViewController.m in Sources */,
 				AFE721781950F3FB0082270D /* NestAuthManager.m in Sources */,
+				97D6A81A1C0D770D000F403E /* DispatchQueueLogFormatter.m in Sources */,
 				213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */,
 				213451971BDF527E00BF5080 /* NestStructures.m in Sources */,
+				97D6A8191C0D770D000F403E /* ContextFilterLogFormatter.m in Sources */,
 				AF26D6111952517200450E99 /* NestThermostatManager.m in Sources */,
+				97D6A7F11C0D6B06000F403E /* PHBridgePushLinkViewController.m in Sources */,
 				AFE7217C1950FE2D0082270D /* AccessToken.m in Sources */,
 				213451A01BE2151B00BF5080 /* SmokeCoAlarmViewController.m in Sources */,
+				97D6A7DE1C0D68B8000F403E /* PHControlLightsViewController.m in Sources */,
 				AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */,
 				2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */,
 				213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */,
 				AF95AB381953281A006FD4A4 /* Thermostat.m in Sources */,
+				97D6A7FA1C0D6B7E000F403E /* PHLoadingViewController.m in Sources */,
+				976844D81BFD758B00EA889A /* CameraViewController.m in Sources */,
 				AF26D6141952606C00450E99 /* NestStructureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,6 +26,7 @@
 #import "MainNavigationController.h"
 #import "NestStructures.h"
 #import "ThermosViewController.h"
+#import "CameraViewController.h"
 #import "NestViewController.h"
 
 @interface MEMenuViewController ()
@@ -33,7 +34,7 @@
     NSManagedObjectContext *moc;
 }
 
-@property (nonatomic, strong) NSArray *menuItems;
+@property (nonatomic, strong) NSMutableArray *menuItems;
 @property (nonatomic, strong) UINavigationController *transitionsNavigationController;
 @end
 
@@ -69,6 +70,9 @@
     
     NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
     _menuItems = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
+    
+    NestStructures *struc = [[NestStructures alloc] init];
+    struc.name = @"Hue";
 }
 
 
@@ -120,10 +124,6 @@
     NSArray *values = [dict allKeys];
     NSString *str = [NSString stringWithFormat:@"%@", values[0]];
     
-//    if ([self.slidingViewController.topViewController.childViewControllers[0] isKindOfClass:[NestViewController class]])
-//    {
-//        self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"entry_point"];
-//    }
     if ([@"thermostats" isEqualToString:str])
     {
         UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"itri_thermos"];
@@ -131,6 +131,15 @@
         NSString *thermostatsId = [NSString stringWithFormat:@"%@", [dict objectForKey:str]];
         thermos.thermostatsId = thermostatsId;
         NSLog(@"thermostatsId=%@", thermostatsId);
+        self.slidingViewController.topViewController = nc;
+    }
+    else if ([@"cameras" isEqualToString:str])
+    {
+        UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"itri_camera"];
+        CameraViewController *camera = (CameraViewController *)nc.topViewController;
+        NSString *camerasId = [NSString stringWithFormat:@"%@", [dict objectForKey:str]];
+        camera.camerasId = camerasId;
+        NSLog(@"camerasId=%@", camerasId);
         self.slidingViewController.topViewController = nc;
     }
     else

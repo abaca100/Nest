@@ -28,5 +28,6 @@
 - (id)initWithURL:(NSString *)URL delegate:(id <NestWebViewAuthControllerDelegate>)delegate;
 
 @property (nonatomic, strong) id <NestWebViewAuthControllerDelegate>delegate;
+@property (nonatomic, strong) NSString *authURL;
 
 @end

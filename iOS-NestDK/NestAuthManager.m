@@ -107,21 +107,21 @@
  */
 - (NSString *)accessToken
 {
-    return Access_Token;
+//    return Access_Token;
     
     
-//    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-//    
-//    // If there is nothing there -- return
-//    if (!encodedObject) {
-//        return nil;
-//    }
-//    AccessToken *at = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-//    if ([at isValid]) {
-//        return at.token;
-//    } else {
-//        return nil;
-//    }
+    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    
+    // If there is nothing there -- return
+    if (!encodedObject) {
+        return nil;
+    }
+    AccessToken *at = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    if ([at isValid]) {
+        return at.token;
+    } else {
+        return nil;
+    }
 }
 
 

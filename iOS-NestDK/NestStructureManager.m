@@ -103,14 +103,21 @@
             
             if ([@"wheres" isEqualToString:key])
                 continue;
+            
+            if ([@"rhr_enrollment" isEqualToString:key])
+                continue;
 
+            if ([@"smoke_co_alarms" isEqualToString:key])
+                continue;
+            
             if (nest.devices == nil)
             {
                 nest.devices = [[NSMutableArray alloc] initWithCapacity:0];
             }
             
+            NSLog(@"key=%@", key);
             NSArray *test = [dict objectForKey:key];
-            if ([test count] > 1)
+            if ((test != nil) && ([test count] > 1))
             {
                 long cnt = [test count];
                 for (int y=0; y<cnt; y++)
