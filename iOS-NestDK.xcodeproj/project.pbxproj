@@ -30,7 +30,6 @@
 		976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844DA1BFD79FB00EA889A /* NestCameraManager.m */; };
 		97D6A7D71C0D680A000F403E /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */; };
 		97D6A7DE1C0D68B8000F403E /* PHControlLightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */; };
-		97D6A7DF1C0D68B8000F403E /* PHControlLightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */; };
 		97D6A7F11C0D6B06000F403E /* PHBridgePushLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7EC1C0D6B06000F403E /* PHBridgePushLinkViewController.m */; };
 		97D6A7F21C0D6B06000F403E /* PHBridgePushLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D6A7ED1C0D6B06000F403E /* PHBridgePushLinkViewController.xib */; };
 		97D6A7F31C0D6B06000F403E /* PHBridgeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D6A7EF1C0D6B06000F403E /* PHBridgeSelectionViewController.m */; };
@@ -131,7 +130,6 @@
 		97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
 		97D6A7DB1C0D68B8000F403E /* PHControlLightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHControlLightsViewController.h; sourceTree = "<group>"; };
 		97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHControlLightsViewController.m; sourceTree = "<group>"; };
-		97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHControlLightsViewController.xib; sourceTree = "<group>"; };
 		97D6A7EB1C0D6B06000F403E /* PHBridgePushLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBridgePushLinkViewController.h; sourceTree = "<group>"; };
 		97D6A7EC1C0D6B06000F403E /* PHBridgePushLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBridgePushLinkViewController.m; sourceTree = "<group>"; };
 		97D6A7ED1C0D6B06000F403E /* PHBridgePushLinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBridgePushLinkViewController.xib; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 			children = (
 				97D6A7DB1C0D68B8000F403E /* PHControlLightsViewController.h */,
 				97D6A7DC1C0D68B8000F403E /* PHControlLightsViewController.m */,
-				97D6A7DD1C0D68B8000F403E /* PHControlLightsViewController.xib */,
 			);
 			name = HueQuickStart;
 			sourceTree = "<group>";
@@ -605,7 +602,6 @@
 				97D6A7F41C0D6B06000F403E /* PHBridgeSelectionViewController.xib in Resources */,
 				97D6A7FE1C0D6B91000F403E /* press_smartbridge.png in Resources */,
 				AFE721381950E7F00082270D /* InfoPlist.strings in Resources */,
-				97D6A7DF1C0D68B8000F403E /* PHControlLightsViewController.xib in Resources */,
 				2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */,
 				AFE721401950E7F00082270D /* Images.xcassets in Resources */,
 				97D6A7F21C0D6B06000F403E /* PHBridgePushLinkViewController.xib in Resources */,

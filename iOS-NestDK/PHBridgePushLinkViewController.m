@@ -31,6 +31,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                            target:self
+                                            action:@selector(cancelButtonClicked:)];
+    self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
+}
+
+- (IBAction)cancelButtonClicked:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

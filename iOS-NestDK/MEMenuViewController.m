@@ -23,11 +23,11 @@
 
 #import "MEMenuViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
-#import "MainNavigationController.h"
 #import "NestStructures.h"
 #import "ThermosViewController.h"
 #import "CameraViewController.h"
 #import "NestViewController.h"
+#import "PHControlLightsViewController.h"
 
 @interface MEMenuViewController ()
 {
@@ -73,11 +73,9 @@
     
     NestStructures *struc = [[NestStructures alloc] init];
     struc.name = @"Hue";
-    NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"bridge", @"bridge", nil];
-    NSDictionary *dict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"light", @"light", nil];
-    struc.devices = [[NSMutableArray alloc] initWithCapacity:2];
+    NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"light", @"light", nil];
+    struc.devices = [[NSMutableArray alloc] initWithCapacity:1];
     struc.devices[0] = dict1;
-    struc.devices[1] = dict2;
     
     [_menuItems addObject:struc];
 }
@@ -137,7 +135,6 @@
         ThermosViewController *thermos = (ThermosViewController *)nc.topViewController;
         NSString *thermostatsId = [NSString stringWithFormat:@"%@", [dict objectForKey:str]];
         thermos.thermostatsId = thermostatsId;
-        NSLog(@"thermostatsId=%@", thermostatsId);
         self.slidingViewController.topViewController = nc;
     }
     else if ([@"cameras" isEqualToString:str])
@@ -146,8 +143,15 @@
         CameraViewController *camera = (CameraViewController *)nc.topViewController;
         NSString *camerasId = [NSString stringWithFormat:@"%@", [dict objectForKey:str]];
         camera.camerasId = camerasId;
-        NSLog(@"camerasId=%@", camerasId);
         self.slidingViewController.topViewController = nc;
+    }
+    else if ([@"light" isEqualToString:str])
+    {
+        if (![self.slidingViewController.topViewController.childViewControllers[0] isKindOfClass:[PHControlLightsViewController class]])
+        {
+            UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"itri_hue"];
+            self.slidingViewController.topViewController = nc;
+        }
     }
     else
     {

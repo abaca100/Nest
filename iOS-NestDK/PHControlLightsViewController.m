@@ -9,6 +9,8 @@
 #import "PHLoadingViewController.h"
 #import "PHControlLightsViewController.h"
 #import <HueSDK_iOS/HueSDK.h>
+#import "UIViewController+ECSlidingViewController.h"
+
 #define MAX_HUE 65535
 
 @class PHHueSDK;
@@ -19,6 +21,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *bridgeIpLabel;
 @property (nonatomic,weak) IBOutlet UILabel *bridgeLastHeartbeatLabel;
 @property (nonatomic,weak) IBOutlet UIButton *randomLightsButton;
+@property (nonatomic,weak) IBOutlet UILabel *bridgeStateLabel;
 
 @property (strong, nonatomic) PHHueSDK *phHueSDK;
 @property (nonatomic, strong) PHLoadingViewController *loadingView;
@@ -33,33 +36,42 @@
 
 @implementation PHControlLightsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    PHNotificationManager *notificationManager = [PHNotificationManager defaultManager];
-    // Register for the local heartbeat notifications
-    [notificationManager registerObject:self withSelector:@selector(localConnection) forNotification:LOCAL_CONNECTION_NOTIFICATION];
-    [notificationManager registerObject:self withSelector:@selector(noLocalConnection) forNotification:NO_LOCAL_CONNECTION_NOTIFICATION];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Find bridge"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(findNewBridgeButtonAction:)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Find bridge" style:UIBarButtonItemStylePlain target:self action:@selector(findNewBridgeButtonAction)];
-    
-    self.navigationItem.title = @"QuickStart";
+    self.navigationItem.title = @"Hue lights";
     
     [self noLocalConnection];
+    
+    _bridgeStateLabel.text = @"Connecting bridge";
+    
+    // Create sdk instance
+    self.phHueSDK = [[PHHueSDK alloc] init];
+    [self.phHueSDK startUpSDK];
+    [self.phHueSDK enableLogging:YES];
+
+    PHNotificationManager *notificationManager = [PHNotificationManager defaultManager];
+    [notificationManager registerObject:self withSelector:@selector(localConnection) forNotification:LOCAL_CONNECTION_NOTIFICATION];
+    [notificationManager registerObject:self withSelector:@selector(noLocalConnection) forNotification:NO_LOCAL_CONNECTION_NOTIFICATION];
+    [notificationManager registerObject:self withSelector:@selector(notAuthenticated) forNotification:NO_LOCAL_AUTHENTICATION_NOTIFICATION];
 }
 
-- (UIRectEdge)edgesForExtendedLayout {
-    return UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self enableLocalHeartbeat];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self disableLocalHeartbeat];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,13 +80,19 @@
 }
 
 
-- (void)localConnection{
-    
-    [self loadConnectedBridgeValues];
-    
+- (IBAction)menuButtonTapped:(id)sender
+{
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
-- (void)noLocalConnection{
+- (void)localConnection
+{
+    [self loadConnectedBridgeValues];
+    _bridgeStateLabel.text = @"Connected bridge";
+}
+
+- (void)noLocalConnection
+{
     self.bridgeLastHeartbeatLabel.text = @"Not connected";
     [self.bridgeLastHeartbeatLabel setEnabled:NO];
     self.bridgeIpLabel.text = @"Not connected";
@@ -83,9 +101,12 @@
     [self.bridgeIdLabel setEnabled:NO];
     
     [self.randomLightsButton setEnabled:NO];
+
+    _bridgeStateLabel.text = @"Connect bridge failure";
 }
 
-- (void)loadConnectedBridgeValues{
+- (void)loadConnectedBridgeValues
+{
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     
     // Check if we have connected to a bridge before
@@ -116,7 +137,7 @@
 }
 
 - (IBAction)selectOtherBridge:(id)sender{
-    //[self searchForBridgeLocal];
+    [self searchForBridgeLocal];
 }
 
 - (IBAction)randomizeColoursOfConnectLights:(id)sender{
@@ -146,33 +167,19 @@
     }
 }
 
-- (void)findNewBridgeButtonAction{
-//    [self searchForBridgeLocal];
+- (IBAction)findNewBridgeButtonAction:(id)sender
+{
+    [self searchForBridgeLocal];
 }
 
 
 #pragma mark - HueSDK
 
 /**
- Notification receiver for successful local connection
- */
-//- (void)localConnection {
-//    // Check current connection state
-//    [self checkConnectionState];
-//}
-
-/**
- Notification receiver for failed local connection
- */
-//- (void)noLocalConnection {
-//    // Check current connection state
-//    [self checkConnectionState];
-//}
-
-/**
  Notification receiver for failed local authentication
  */
-- (void)notAuthenticated {
+- (void)notAuthenticated
+{
     /***************************************************
      We are not authenticated so we start the authentication process
      *****************************************************/
@@ -185,11 +192,7 @@
         [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
     }
     
-    // Remove no connection alert
-//    if (self.noConnectionAlert != nil) {
-//        [self.noConnectionAlert dismissWithClickedButtonIndex:[self.noConnectionAlert cancelButtonIndex] animated:YES];
-//        self.noConnectionAlert = nil;
-//    }
+    [SVProgressHUD dismiss];
     
     /***************************************************
      doAuthentication will start the push linking
@@ -202,7 +205,8 @@
 /**
  Checks if we are currently connected to the bridge locally and if not, it will show an error when the error is not already shown.
  */
-- (void)checkConnectionState {
+- (void)checkConnectionState
+{
     if (!self.phHueSDK.localConnected) {
         // Dismiss modal views when connection is lost
         
@@ -211,49 +215,22 @@
         }
         
         // No connection at all, show connection popup
-        
-//        if (self.noConnectionAlert == nil) {
-//            [self.navigationController popToRootViewControllerAnimated:YES];
-//            
-//            // Showing popup, so remove this view
-//            [self removeLoadingView];
-//            [self showNoConnectionDialog];
-//        }
-        
+        [SVProgressHUD showErrorWithStatus:@"No connection"];
     }
-    else {
-        // One of the connections is made, remove popups and loading views
-        
-//        if (self.noConnectionAlert != nil) {
-//            [self.noConnectionAlert dismissWithClickedButtonIndex:[self.noConnectionAlert cancelButtonIndex] animated:YES];
-//            self.noConnectionAlert = nil;
-//        }
-        [self removeLoadingView];
-        
+    else
+    {
+        [SVProgressHUD dismiss];
     }
 }
 
-/**
- Shows the first no connection alert with more connection options
- */
-- (void)showNoConnectionDialog {
-    
-//    self.noConnectionAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No connection", @"No connection alert title")
-//                                                        message:NSLocalizedString(@"Connection to bridge is lost", @"No Connection alert message")
-//                                                       delegate:self
-//                                              cancelButtonTitle:nil
-//                                              otherButtonTitles:NSLocalizedString(@"Reconnect", @"No connection alert reconnect button"), NSLocalizedString(@"Find new bridge", @"No connection find new bridge button"),NSLocalizedString(@"Cancel", @"No connection cancel button"), nil];
-//    self.noConnectionAlert.tag = 1;
-//    [self.noConnectionAlert show];
-    
-}
 
 #pragma mark - Heartbeat control
 
 /**
  Starts the local heartbeat with a 10 second interval
  */
-- (void)enableLocalHeartbeat {
+- (void)enableLocalHeartbeat
+{
     /***************************************************
      The heartbeat processing collects data from the bridge
      so now try to see if we have a bridge already connected
@@ -262,11 +239,16 @@
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     if (cache != nil && cache.bridgeConfiguration != nil && cache.bridgeConfiguration.ipaddress != nil) {
         //
-        [self showLoadingViewWithText:NSLocalizedString(@"Connecting...", @"Connecting text")];
         
+        NSLog(@"%@, %@", cache.bridgeConfiguration, cache.bridgeConfiguration.ipaddress);
+        NSLog(@"%@", cache);
+        [SVProgressHUD showInfoWithStatus:@"Connecting..."];
+        //[SVProgressHUD show];
         // Enable heartbeat with interval of 10 seconds
         [self.phHueSDK enableLocalConnection];
-    } else {
+    }
+    else
+    {
         // Automaticly start searching for bridges
         [self searchForBridgeLocal];
     }
@@ -284,12 +266,14 @@
 /**
  Search for bridges using UPnP and portal discovery, shows results to user or gives error when none found.
  */
-- (void)searchForBridgeLocal {
+- (void)searchForBridgeLocal
+{
     // Stop heartbeats
     [self disableLocalHeartbeat];
     
     // Show search screen
-    [self showLoadingViewWithText:NSLocalizedString(@"Searching...", @"Searching for bridges text")];
+    //[SVProgressHUD showInfoWithStatus:@"Searching..."];
+    [SVProgressHUD show];
     /***************************************************
      A bridge search is started using UPnP to find local bridges
      *****************************************************/
@@ -298,7 +282,7 @@
     self.bridgeSearch = [[PHBridgeSearching alloc] initWithUpnpSearch:YES andPortalSearch:YES andIpAdressSearch:YES];
     [self.bridgeSearch startSearchWithCompletionHandler:^(NSDictionary *bridgesFound) {
         // Done with search, remove loading view
-        [self removeLoadingView];
+        [SVProgressHUD dismiss];
         
         /***************************************************
          The search is complete, check whether we found a bridge
@@ -318,20 +302,15 @@
             navController.modalPresentationStyle = UIModalPresentationFormSheet;
             [self.navigationController presentViewController:navController animated:YES completion:nil];
         }
-        else {
+        else
+        {
             /***************************************************
              No bridge was found was found. Tell the user and offer to retry..
              *****************************************************/
             
             // No bridges were found, show this to the user
             
-//            self.noBridgeFoundAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No bridges", @"No bridge found alert title")
-//                                                                 message:NSLocalizedString(@"Could not find bridge", @"No bridge found alert message")
-//                                                                delegate:self
-//                                                       cancelButtonTitle:nil
-//                                                       otherButtonTitles:NSLocalizedString(@"Retry", @"No bridge found alert retry button"),NSLocalizedString(@"Cancel", @"No bridge found alert cancel button"), nil];
-//            self.noBridgeFoundAlert.tag = 1;
-//            [self.noBridgeFoundAlert show];
+            [SVProgressHUD showErrorWithStatus:@"Could not find bridge"];
         }
     }];
 }
@@ -350,7 +329,8 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
     // Show a connecting view while we try to connect to the bridge
-    [self showLoadingViewWithText:NSLocalizedString(@"Connecting...", @"Connecting text")];
+    //[SVProgressHUD showInfoWithStatus:@"Connecting..."];
+    [SVProgressHUD show];
     
     // Set SDK to use bridge and our default username (which should be the same across all apps, so pushlinking is only required once)
     //NSString *username = [PHUtilities whitelistIdentifier];
@@ -377,7 +357,8 @@
 /**
  Start the local authentication process
  */
-- (void)doAuthentication {
+- (void)doAuthentication
+{
     // Disable heartbeats
     [self disableLocalHeartbeat];
     
@@ -387,7 +368,9 @@
      *****************************************************/
     
     // Create an interface for the pushlinking
-    self.pushLinkViewController = [[PHBridgePushLinkViewController alloc] initWithNibName:@"PHBridgePushLinkViewController" bundle:[NSBundle mainBundle] hueSDK:self.phHueSDK delegate:self];
+    self.pushLinkViewController = [[PHBridgePushLinkViewController alloc] initWithNibName:@"PHBridgePushLinkViewController"
+                                                                                   bundle:[NSBundle mainBundle]
+                                                                                   hueSDK:self.phHueSDK delegate:self];
     
     [self.navigationController presentViewController:self.pushLinkViewController animated:YES completion:^{
         /***************************************************
@@ -402,7 +385,8 @@
 /**
  Delegate method for PHBridgePushLinkViewController which is invoked if the pushlinking was successfull
  */
-- (void)pushlinkSuccess {
+- (void)pushlinkSuccess
+{
     /***************************************************
      Push linking succeeded we are authenticated against
      the chosen bridge.
@@ -420,7 +404,8 @@
  Delegate method for PHBridgePushLinkViewController which is invoked if the pushlinking was not successfull
  */
 
-- (void)pushlinkFailed:(PHError *)error {
+- (void)pushlinkFailed:(PHError *)error
+{
     // Remove pushlink view controller
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     self.pushLinkViewController = nil;
@@ -433,43 +418,11 @@
         // Start local heartbeat (to see when connection comes back)
         [self performSelector:@selector(enableLocalHeartbeat) withObject:nil afterDelay:1];
     }
-    else {
-        // Bridge button not pressed in time
-//        self.authenticationFailedAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Authentication failed", @"Authentication failed alert title")
-//                                                                    message:NSLocalizedString(@"Make sure you press the button within 30 seconds", @"Authentication failed alert message")
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:nil
-//                                                          otherButtonTitles:NSLocalizedString(@"Retry", @"Authentication failed alert retry button"), NSLocalizedString(@"Cancel", @"Authentication failed cancel button"), nil];
-//        [self.authenticationFailedAlert show];
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:@"Authentication failed"];
     }
 }
 
-
-#pragma mark - Loading view
-
-/**
- Shows an overlay over the whole screen with a black box with spinner and loading text in the middle
- @param text The text to display under the spinner
- */
-- (void)showLoadingViewWithText:(NSString *)text {
-    // First remove
-    [self removeLoadingView];
-    
-    // Then add new
-    self.loadingView = [[PHLoadingViewController alloc] initWithNibName:@"PHLoadingViewController" bundle:[NSBundle mainBundle]];
-    self.loadingView.view.frame = self.navigationController.view.bounds;
-    [self.navigationController.view addSubview:self.loadingView.view];
-    self.loadingView.loadingLabel.text = text;
-}
-
-/**
- Removes the full screen loading overlay.
- */
-- (void)removeLoadingView {
-    if (self.loadingView != nil) {
-        [self.loadingView.view removeFromSuperview];
-        self.loadingView = nil;
-    }
-}
 
 @end

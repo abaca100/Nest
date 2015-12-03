@@ -15,6 +15,9 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PHBridgeSelectionViewController.h"
+#import "PHBridgePushLinkViewController.h"
+#import <HueSDK_iOS/HueSDK.h>
 
 @interface MainNavigationController : UINavigationController
 

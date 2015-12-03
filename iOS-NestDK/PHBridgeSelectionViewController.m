@@ -40,6 +40,17 @@
                                              target:self
                                              action:@selector(refreshButtonClicked:)];
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+    
+    UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                             target:self
+                                             action:@selector(cancelButtonClicked:)];
+    self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
+}
+
+- (IBAction)cancelButtonClicked:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)refreshButtonClicked:(id)sender {
