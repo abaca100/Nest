@@ -18,15 +18,19 @@
     NSString *str = [NSString stringWithFormat:@"devices/cameras/%@/", sid];
     NSLog(@"path=%@", str);
 
+    NSLog(@"%@.%@ SubscriptionTo 'FirebaseManager'", [[self class] description], NSStringFromSelector(_cmd));
+
     [[FirebaseManager sharedManager] addSubscriptionToURL:str withBlock:^(FDataSnapshot *snapshot) {
         //NSLog(@"snapshot=%@", snapshot.value);
+        NSLog(@"%@.%@ FirebaseManager return  'FDataSnapshot'", [[self class] description], NSStringFromSelector(_cmd));
         [self updateCamera:camera forStructure:snapshot.value];
     }];
 }
 
 - (void)updateCamera:(Camera *)camera forStructure:(NSDictionary *)structure
 {
-    NSLog(@"camera structure=%@", structure);
+    //NSLog(@"camera structure=%@", structure);
+    NSLog(@"%@.%@ receive 'Camera Structure'", [[self class] description], NSStringFromSelector(_cmd));
     camera.app_url = [structure objectForKey:@"app_url"];
     camera.web_url = [structure objectForKey:@"web_url"];
     camera.last_is_online_change = [structure objectForKey:@"last_is_online_change"];

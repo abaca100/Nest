@@ -43,9 +43,9 @@
     NSString *sid = [NSString stringWithFormat:@"%@", thermostat.thermostatId];
     NSString *str = [NSString stringWithFormat:@"devices/thermostats/%@/", sid];
     //str = @"devices/thermostats";
-    NSLog(@"path=%@", str);
+    NSLog(@"%@.%@ \r\nSubscription 'path=%@'", [[self class] description], NSStringFromSelector(_cmd), str);
     [[FirebaseManager sharedManager] addSubscriptionToURL:str withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"snapshot=%@", snapshot.value);
+        NSLog(@"%@.%@ \r\nFirebase return 'FDataSnapshot=%@'", [[self class] description], NSStringFromSelector(_cmd), snapshot.value);
         [self updateThermostat:thermostat forStructure:snapshot.value];
     }];
 }
@@ -58,6 +58,7 @@
  */
 - (void)updateThermostat:(Thermostat *)thermostat forStructure:(NSDictionary *)structure
 {
+    NSLog(@"%@.%@ \r\nThermostat receive 'Event'", [[self class] description], NSStringFromSelector(_cmd));
     NSLog(@"Thermost structure=%@", structure);
     if ([structure objectForKey:AMBIENT_TEMPERATURE_F]) {
         thermostat.ambientTemperatureF = [[structure objectForKey:AMBIENT_TEMPERATURE_F] integerValue];

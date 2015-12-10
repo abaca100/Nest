@@ -55,8 +55,9 @@
 //        [self.rootFirebase authWithCredential:[[NestAuthManager sharedManager] accessToken] withCompletionBlock:^(NSError *error, id data) {} withCancelBlock:^(NSError *error) {}];
         [self.rootFirebase authWithCustomToken:[[NestAuthManager sharedManager] accessToken]
                            withCompletionBlock:^(NSError *error, id data) {
-                               NSLog(@"NSError=%@", error);
-                               NSLog(@"data=%@", data);
+//                               NSLog(@"NSError=%@", error);
+//                               NSLog(@"data=%@", data);
+                               NSLog(@"%@.%@ \r\ndata=%@", [[self class] description], NSStringFromSelector(_cmd), data);
                            }];
     }
     

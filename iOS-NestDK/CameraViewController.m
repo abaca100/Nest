@@ -37,6 +37,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    NSLog(@"%@.%@ initialize 'NestCameraManager'", [[self class] description], NSStringFromSelector(_cmd));
+
     self.nestCameraManager = [[NestCameraManager alloc] init];
     [self.nestCameraManager setDelegate:self];
     self.webview.delegate = self;
@@ -65,6 +67,8 @@
 
 - (void)cameraValuesChanged:(Camera *)camera
 {
+    NSLog(@"%@.%@ delegate update 'UI'", [[self class] description], NSStringFromSelector(_cmd));
+
     [SVProgressHUD show];
     if ([camera.cameraId isEqualToString:[self.currentCamera cameraId]])
     {
@@ -109,16 +113,16 @@
         
         if (camera.is_streaming)
         {
+            [[self hue_container] setHidden:YES];
             self.title = @"Camera";
             [self turnLights:0];
-            [[self light_on] setOn:NO];
         }
         else
         {
+            [[self hue_container] setHidden:NO];
             self.title = @"Camera is off";
             NSNumber *num = [[NSNumber alloc] initWithInt:1];
             [self turnLights:num];
-            [[self light_on] setOn:YES];
         }
     }
     [SVProgressHUD dismiss];
@@ -139,7 +143,7 @@
     return [dateFormat stringFromDate:date];
 }
 
-- (void)turnLights:(NSNumber *)state
+- (BOOL)turnLights:(NSNumber *)state
 {
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
@@ -147,12 +151,13 @@
     if (!(cache != nil && cache.bridgeConfiguration != nil && cache.bridgeConfiguration.ipaddress != nil))
     {
         [[self hue_container] setHidden:YES];
-        return;
+        return false;
     }
     
-    [[self hue_container] setHidden:NO];
-    for (PHLight *light in cache.lights.allValues) {
-        
+    [[self light_on] setOn:NO];
+    
+    for (PHLight *light in cache.lights.allValues)
+    {
         PHLightState *lightState = [[PHLightState alloc] init];
 
         [lightState setOn:state];
@@ -161,8 +166,10 @@
 //        [lightState setSaturation:[NSNumber numberWithInt:254]];
         
         // Send lightstate to light
-        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors) {
-            if (errors != nil) {
+        [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors)
+        {
+            if (errors != nil)
+            {
                 NSString *message = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Errors", @""), errors != nil ? errors : NSLocalizedString(@"none", @"")];
                 
                 NSLog(@"Response: %@",message);
@@ -170,6 +177,24 @@
             }
             
         }];
+    }
+    
+    return self.light_on.on;
+}
+
+- (IBAction)swithc_light:(id)sender
+{
+    if (self.light_on.on == YES)
+    {
+        NSNumber *num = [[NSNumber alloc] initWithInt:1];
+        if ([self turnLights:num] == NO)
+        {
+            [SVProgressHUD showErrorWithStatus:@"Turn-on light failure."];
+        }
+    }
+    else
+    {
+        [self turnLights:0];
     }
 }
 
@@ -203,7 +228,7 @@
     
     self.currentStructure = structure;
     
-    if ([self getCurrentThermost])
+    if ([self getCurrentCamera])
     {
         self.title = @"Camera";
         [self subscribeToCamera:self.currentCamera];
@@ -215,7 +240,7 @@
     }
 }
 
-- (BOOL)getCurrentThermost
+- (BOOL)getCurrentCamera
 {
     for (int i=0; i<self.currentStructure.count; i++)
     {

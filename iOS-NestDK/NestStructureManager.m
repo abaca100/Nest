@@ -28,7 +28,10 @@
  */
 - (void)initialize
 {
+    NSLog(@"%@.%@ SubscriptionTo 'FirebaseManager'", [[self class] description], NSStringFromSelector(_cmd));
+
     [[FirebaseManager sharedManager] addSubscriptionToURL:@"structures/" withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"%@.%@ FirebaseManager return 'FDataSnapshot'", [[self class] description], NSStringFromSelector(_cmd));
         [self parseStructure:snapshot.value];
     }];
 }
@@ -53,6 +56,8 @@
     
     
     [self.delegate structureArray:models];
+
+    NSLog(@"%@.%@ delegate to 'Client'", [[self class] description], NSStringFromSelector(_cmd));
 }
 
 - (NSArray *)nestStructure:(NSDictionary *)structure
@@ -134,6 +139,7 @@
         }
         [m addObject:nest];
     }
+    NSLog(@"%@.%@ get 'NestStructures'", [[self class] description], NSStringFromSelector(_cmd));
     
     return m;
 }

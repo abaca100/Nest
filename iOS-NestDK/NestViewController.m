@@ -26,6 +26,8 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Nest Development";
+    
+    NSLog(@"%@.%@ initialize 'NestStructureManager'", [[self class] description], NSStringFromSelector(_cmd));
 
     // Get the initial structure
     self.nestStructureManager = [[NestStructureManager alloc] init];
@@ -66,7 +68,8 @@
 //        //NSLog(@"%@ = %@", key, object);
 //        [s appendString:object];
 //    }];
-    NSLog(@"structure=%@", structure);
+    //NSLog(@"structure=%@", structure);
+    NSLog(@"%@.%@ \r\nstructure 'Detail=%@'", [[self class] description], NSStringFromSelector(_cmd), structure);
 }
 
 - (void)structureArray:(NSArray *)structure
