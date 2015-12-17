@@ -10,6 +10,9 @@
 #import "NestCameraManager.h"
 #import "NestStructures.h"
 #import <HueSDK_iOS/HueSDK.h>
+#import "FirebaseManager.h"
+
+#define MAX_HUE 65535
 
 @interface CameraViewController () <NestCameraManagerDelegate, UIWebViewDelegate>
 {
@@ -113,16 +116,15 @@
         
         if (camera.is_streaming)
         {
-            [[self hue_container] setHidden:YES];
+            //[[self hue_container] setHidden:YES];
             self.title = @"Camera";
-            [self turnLights:0];
+            [self turnLights:NO];
         }
         else
         {
-            [[self hue_container] setHidden:NO];
+            //[[self hue_container] setHidden:NO];
             self.title = @"Camera is off";
-            NSNumber *num = [[NSNumber alloc] initWithInt:1];
-            [self turnLights:num];
+            [self turnLights:YES];
         }
     }
     [SVProgressHUD dismiss];
@@ -143,7 +145,7 @@
     return [dateFormat stringFromDate:date];
 }
 
-- (BOOL)turnLights:(NSNumber *)state
+- (BOOL)turnLights:(BOOL)state
 {
     PHBridgeResourcesCache *cache = [PHBridgeResourcesReader readBridgeResourcesCache];
     PHBridgeSendAPI *bridgeSendAPI = [[PHBridgeSendAPI alloc] init];
@@ -154,17 +156,18 @@
         return false;
     }
     
-    [[self light_on] setOn:NO];
-    
     for (PHLight *light in cache.lights.allValues)
     {
-        PHLightState *lightState = [[PHLightState alloc] init];
-
-        [lightState setOn:state];
-//        [lightState setHue:];
-//        [lightState setBrightness:[NSNumber numberWithInt:254]];
-//        [lightState setSaturation:[NSNumber numberWithInt:254]];
+        PHLightState *lightState = light.lightState;
         
+        if (state) {
+            lightState.on = @YES;
+            [[self light_on] setOn:YES];
+        } else {
+            lightState.on = @NO;
+            [[self light_on] setOn:NO];
+        }
+
         // Send lightstate to light
         [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:^(NSArray *errors)
         {
@@ -174,6 +177,34 @@
                 
                 NSLog(@"Response: %@",message);
                 [[self light_on] setOn:NO];
+            }
+            else
+            {
+                if (state && ([lightState.reachable intValue] == 1)) {
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+
+                        NSLog(@"%@.%@ \r\nlight.identifier:%@ 'lightState=%@'", [[self class] description], NSStringFromSelector(_cmd), light.identifier, lightState);
+
+                        if ([@"1" isEqualToString:light.identifier]) {
+                            lightState.x = [NSNumber numberWithDouble:0.675];
+                            lightState.y = [NSNumber numberWithDouble:0.322];
+                        } else if ([@"2" isEqualToString:light.identifier]) {
+                            lightState.x = [NSNumber numberWithDouble:0.41];
+                            lightState.y = [NSNumber numberWithDouble:0.517];
+                        } else if ([@"3" isEqualToString:light.identifier]) {
+                            lightState.x = [NSNumber numberWithDouble:0.1691];
+                            lightState.y = [NSNumber numberWithDouble:0.0441];
+                        }
+                        
+                        lightState.ct = @500;
+                        
+                        if ([lightState.on intValue] == 1) {
+                            [bridgeSendAPI updateLightStateForId:light.identifier withLightState:lightState completionHandler:nil];
+                        }
+                    });
+                    
+                }
             }
             
         }];
@@ -283,6 +314,21 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error
 {
     NSLog(@"%@", error);
+}
+
+
+- (IBAction)refresh:(id)sender
+{
+    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+
+    NSLog(@"_currentCamera.is_streaming=%d", _currentCamera.is_streaming);
+    _currentCamera.is_streaming = !_currentCamera.is_streaming;
+    NSLog(@"_currentCamera.is_streaming=%d", _currentCamera.is_streaming);
+    [values setValue:[NSNumber numberWithBool:_currentCamera.is_streaming] forKey:@"is_streaming"];
+    
+    NSString *str = [NSString stringWithFormat:@"devices/cameras/%@/", _currentCamera.cameraId];
+    NSLog(@"str=%@", str);
+    [[FirebaseManager sharedManager] setValues:values forURL:str];
 }
 
 /*

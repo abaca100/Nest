@@ -146,6 +146,12 @@
     
 }
 
+- (void)structureArray:(NSArray *)structure
+{
+    // do nothing
+}
+
+
 #pragma mark - ThermostatViewDelegate Methods
 
 /**
