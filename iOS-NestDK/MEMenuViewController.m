@@ -28,6 +28,7 @@
 #import "CameraViewController.h"
 #import "NestViewController.h"
 #import "PHControlLightsViewController.h"
+#import "iOS-NestDK-Bridging-Header.h"
 
 @interface MEMenuViewController ()
 {
@@ -71,13 +72,21 @@
     NSData *objData = [[NSUserDefaults standardUserDefaults] objectForKey:@"NEST"];
     _menuItems = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
     
-    NestStructures *struc = [[NestStructures alloc] init];
-    struc.name = @"Hue";
+    NestStructures *struc1 = [[NestStructures alloc] init];
+    struc1.name = @"Hue";
     NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"light", @"light", nil];
-    struc.devices = [[NSMutableArray alloc] initWithCapacity:1];
-    struc.devices[0] = dict1;
+    struc1.devices = [[NSMutableArray alloc] initWithCapacity:1];
+    struc1.devices[0] = dict1;
     
-    [_menuItems addObject:struc];
+    [_menuItems addObject:struc1];
+    
+    NSDictionary *dict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Home", @"home", nil];
+    NestStructures *struc2 = [[NestStructures alloc] init];
+    struc2.name = @"HomeKit";
+    struc2.devices = [[NSMutableArray alloc] initWithCapacity:1];
+    struc2.devices[0] = dict2;
+    
+    [_menuItems addObject:struc2];
 }
 
 
@@ -153,8 +162,14 @@
             self.slidingViewController.topViewController = nc;
         }
     }
+    else if ([@"home" isEqualToString:str])
+    {
+        UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"itri_homekit"];
+        self.slidingViewController.topViewController = nc;
+    }
     else
     {
+        NSLog(@"str=%@", str);
         //self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"entry_point"];
     }
     

@@ -25,6 +25,28 @@
 		213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A21BE215C800BF5080 /* SmokeCoAlarm.m */; };
 		213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */; };
 		36E87947F84FCA450B0A3A52 /* libPods-iOS-NestDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3CDFFFF59DE91435DC337F /* libPods-iOS-NestDK.a */; };
+		9713192C1C4DCD9B0046FE25 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9713192B1C4DCD9B0046FE25 /* HomeKit.framework */; };
+		971319301C4DD7A70046FE25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713192F1C4DD7A70046FE25 /* HomeViewController.swift */; };
+		971319321C4DD8690046FE25 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319311C4DD8690046FE25 /* HomeStore.swift */; };
+		971319401C4DD91D0046FE25 /* Array+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319331C4DD91D0046FE25 /* Array+Sorting.swift */; };
+		971319411C4DD91D0046FE25 /* CNMutablePostalAddress+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319341C4DD91D0046FE25 /* CNMutablePostalAddress+Convenience.swift */; };
+		971319421C4DD91D0046FE25 /* HMActionSet+BuiltIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319351C4DD91D0046FE25 /* HMActionSet+BuiltIn.swift */; };
+		971319431C4DD91D0046FE25 /* HMCharacteristic+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319361C4DD91D0046FE25 /* HMCharacteristic+Properties.swift */; };
+		971319441C4DD91D0046FE25 /* HMEventTrigger+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319371C4DD91D0046FE25 /* HMEventTrigger+Convenience.swift */; };
+		971319451C4DD91D0046FE25 /* HMHome+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319381C4DD91D0046FE25 /* HMHome+Properties.swift */; };
+		971319461C4DD91D0046FE25 /* HMService+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319391C4DD91D0046FE25 /* HMService+Properties.swift */; };
+		971319481C4DD91D0046FE25 /* UIAlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713193B1C4DD91D0046FE25 /* UIAlertController+Convenience.swift */; };
+		971319491C4DD91D0046FE25 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713193C1C4DD91D0046FE25 /* UIColor+Custom.swift */; };
+		9713194A1C4DD91D0046FE25 /* UIStoryboardSegue+IntendedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713193D1C4DD91D0046FE25 /* UIStoryboardSegue+IntendedDestination.swift */; };
+		9713194B1C4DD91D0046FE25 /* UITableViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713193E1C4DD91D0046FE25 /* UITableViewController+Convenience.swift */; };
+		9713194C1C4DD91D0046FE25 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713193F1C4DD91D0046FE25 /* UIViewController+Convenience.swift */; };
+		971319571C4E0B140046FE25 /* HMCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319561C4E0B140046FE25 /* HMCatalogViewController.swift */; };
+		9713195B1C4E0B5C0046FE25 /* AccessoryBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319581C4E0B5C0046FE25 /* AccessoryBrowserViewController.swift */; };
+		9713195C1C4E0B5C0046FE25 /* AccessoryUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319591C4E0B5C0046FE25 /* AccessoryUpdateController.swift */; };
+		9713195D1C4E0B5C0046FE25 /* ModifyAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713195A1C4E0B5C0046FE25 /* ModifyAccessoryViewController.swift */; };
+		971319601C4E0B970046FE25 /* CharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9713195E1C4E0B970046FE25 /* CharacteristicCell.swift */; };
+		971319611C4E0B970046FE25 /* CharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9713195F1C4E0B970046FE25 /* CharacteristicCell.xib */; };
+		971319631C4E0BD10046FE25 /* HomeKitObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971319621C4E0BD10046FE25 /* HomeKitObjectCollection.swift */; };
 		976844D51BFD73E600EA889A /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D41BFD73E600EA889A /* Camera.m */; };
 		976844D81BFD758B00EA889A /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844D71BFD758B00EA889A /* CameraViewController.m */; };
 		976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 976844DA1BFD79FB00EA889A /* NestCameraManager.m */; };
@@ -121,6 +143,30 @@
 		213451A21BE215C800BF5080 /* SmokeCoAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeCoAlarm.m; sourceTree = "<group>"; };
 		213451A41BE2171200BF5080 /* NestSmokeCoAlarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestSmokeCoAlarmManager.h; sourceTree = "<group>"; };
 		213451A51BE2171200BF5080 /* NestSmokeCoAlarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestSmokeCoAlarmManager.m; sourceTree = "<group>"; };
+		9713192A1C4DCD9B0046FE25 /* iOS-NestDK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iOS-NestDK.entitlements"; sourceTree = "<group>"; };
+		9713192B1C4DCD9B0046FE25 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		9713192E1C4DD7A70046FE25 /* iOS-NestDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-NestDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		9713192F1C4DD7A70046FE25 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		971319311C4DD8690046FE25 /* HomeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
+		971319331C4DD91D0046FE25 /* Array+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Sorting.swift"; sourceTree = "<group>"; };
+		971319341C4DD91D0046FE25 /* CNMutablePostalAddress+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNMutablePostalAddress+Convenience.swift"; sourceTree = "<group>"; };
+		971319351C4DD91D0046FE25 /* HMActionSet+BuiltIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMActionSet+BuiltIn.swift"; sourceTree = "<group>"; };
+		971319361C4DD91D0046FE25 /* HMCharacteristic+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMCharacteristic+Properties.swift"; sourceTree = "<group>"; };
+		971319371C4DD91D0046FE25 /* HMEventTrigger+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMEventTrigger+Convenience.swift"; sourceTree = "<group>"; };
+		971319381C4DD91D0046FE25 /* HMHome+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMHome+Properties.swift"; sourceTree = "<group>"; };
+		971319391C4DD91D0046FE25 /* HMService+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMService+Properties.swift"; sourceTree = "<group>"; };
+		9713193B1C4DD91D0046FE25 /* UIAlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Convenience.swift"; sourceTree = "<group>"; };
+		9713193C1C4DD91D0046FE25 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		9713193D1C4DD91D0046FE25 /* UIStoryboardSegue+IntendedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+IntendedDestination.swift"; sourceTree = "<group>"; };
+		9713193E1C4DD91D0046FE25 /* UITableViewController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Convenience.swift"; sourceTree = "<group>"; };
+		9713193F1C4DD91D0046FE25 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
+		971319561C4E0B140046FE25 /* HMCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMCatalogViewController.swift; sourceTree = "<group>"; };
+		971319581C4E0B5C0046FE25 /* AccessoryBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryBrowserViewController.swift; sourceTree = "<group>"; };
+		971319591C4E0B5C0046FE25 /* AccessoryUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryUpdateController.swift; sourceTree = "<group>"; };
+		9713195A1C4E0B5C0046FE25 /* ModifyAccessoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccessoryViewController.swift; sourceTree = "<group>"; };
+		9713195E1C4E0B970046FE25 /* CharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicCell.swift; sourceTree = "<group>"; };
+		9713195F1C4E0B970046FE25 /* CharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacteristicCell.xib; sourceTree = "<group>"; };
+		971319621C4E0BD10046FE25 /* HomeKitObjectCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeKitObjectCollection.swift; sourceTree = "<group>"; };
 		976844D31BFD73E600EA889A /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		976844D41BFD73E600EA889A /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		976844D61BFD758B00EA889A /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -223,6 +269,7 @@
 				AFE721301950E7EF0082270D /* CoreGraphics.framework in Frameworks */,
 				AFE721321950E7EF0082270D /* UIKit.framework in Frameworks */,
 				AFE7212E1950E7EF0082270D /* Foundation.framework in Frameworks */,
+				9713192C1C4DCD9B0046FE25 /* HomeKit.framework in Frameworks */,
 				97D6A7D71C0D680A000F403E /* HueSDK_iOS.framework in Frameworks */,
 				36E87947F84FCA450B0A3A52 /* libPods-iOS-NestDK.a in Frameworks */,
 			);
@@ -269,6 +316,43 @@
 				2134518A1BDE1AAD00BF5080 /* MEZoomAnimationController.m */,
 			);
 			name = DrawerKit;
+			sourceTree = "<group>";
+		};
+		9713192D1C4DD6C20046FE25 /* Homekit */ = {
+			isa = PBXGroup;
+			children = (
+				971319551C4E0A640046FE25 /* library */,
+				971319311C4DD8690046FE25 /* HomeStore.swift */,
+				9713192F1C4DD7A70046FE25 /* HomeViewController.swift */,
+				9713192E1C4DD7A70046FE25 /* iOS-NestDK-Bridging-Header.h */,
+			);
+			name = Homekit;
+			sourceTree = "<group>";
+		};
+		971319551C4E0A640046FE25 /* library */ = {
+			isa = PBXGroup;
+			children = (
+				971319621C4E0BD10046FE25 /* HomeKitObjectCollection.swift */,
+				9713195E1C4E0B970046FE25 /* CharacteristicCell.swift */,
+				9713195F1C4E0B970046FE25 /* CharacteristicCell.xib */,
+				971319581C4E0B5C0046FE25 /* AccessoryBrowserViewController.swift */,
+				971319591C4E0B5C0046FE25 /* AccessoryUpdateController.swift */,
+				9713195A1C4E0B5C0046FE25 /* ModifyAccessoryViewController.swift */,
+				971319561C4E0B140046FE25 /* HMCatalogViewController.swift */,
+				971319331C4DD91D0046FE25 /* Array+Sorting.swift */,
+				971319341C4DD91D0046FE25 /* CNMutablePostalAddress+Convenience.swift */,
+				971319351C4DD91D0046FE25 /* HMActionSet+BuiltIn.swift */,
+				971319361C4DD91D0046FE25 /* HMCharacteristic+Properties.swift */,
+				971319371C4DD91D0046FE25 /* HMEventTrigger+Convenience.swift */,
+				971319381C4DD91D0046FE25 /* HMHome+Properties.swift */,
+				971319391C4DD91D0046FE25 /* HMService+Properties.swift */,
+				9713193B1C4DD91D0046FE25 /* UIAlertController+Convenience.swift */,
+				9713193C1C4DD91D0046FE25 /* UIColor+Custom.swift */,
+				9713193D1C4DD91D0046FE25 /* UIStoryboardSegue+IntendedDestination.swift */,
+				9713193E1C4DD91D0046FE25 /* UITableViewController+Convenience.swift */,
+				9713193F1C4DD91D0046FE25 /* UIViewController+Convenience.swift */,
+			);
+			name = library;
 			sourceTree = "<group>";
 		};
 		97D6A7DA1C0D68A1000F403E /* HueQuickStart */ = {
@@ -375,6 +459,7 @@
 		AFE7212C1950E7EF0082270D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9713192B1C4DCD9B0046FE25 /* HomeKit.framework */,
 				97D6A8041C0D76C2000F403E /* Lumberjack */,
 				97D6A7D61C0D680A000F403E /* HueSDK_iOS.framework */,
 				0418C5BD1BD0ADA90047643E /* Firebase.framework */,
@@ -397,9 +482,10 @@
 		AFE721331950E7EF0082270D /* iOS-NestDK */ = {
 			isa = PBXGroup;
 			children = (
+				2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */,
+				9713192D1C4DD6C20046FE25 /* Homekit */,
 				97D6A7E01C0D6A8A000F403E /* HueSDKWizard */,
 				97D6A7DA1C0D68A1000F403E /* HueQuickStart */,
-				2134517A1BDDBE7600BF5080 /* MainStoryboard.storyboard */,
 				2134517C1BDE1A5C00BF5080 /* DrawerKit */,
 				AFE7217D195108F70082270D /* UINavigationControllers */,
 				AFE721791950F4020082270D /* Nest API */,
@@ -410,7 +496,6 @@
 				AF7BD6BD195DEFB500296A8C /* Constants.m */,
 				AFE7213C1950E7F00082270D /* AppDelegate.h */,
 				AFE7213D1950E7F00082270D /* AppDelegate.m */,
-				AFE7213F1950E7F00082270D /* Images.xcassets */,
 				AFE721341950E7EF0082270D /* Supporting Files */,
 			);
 			path = "iOS-NestDK";
@@ -419,6 +504,8 @@
 		AFE721341950E7EF0082270D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AFE7213F1950E7F00082270D /* Images.xcassets */,
+				9713192A1C4DCD9B0046FE25 /* iOS-NestDK.entitlements */,
 				210D46011BD4ABB100627A61 /* Launch Screen.storyboard */,
 				AFE721351950E7EF0082270D /* iOS-NestDK-Info.plist */,
 				AFE721361950E7F00082270D /* InfoPlist.strings */,
@@ -563,11 +650,17 @@
 		AFE721221950E7EF0082270D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Nest Labs";
 				TargetAttributes = {
 					AFE721291950E7EF0082270D = {
 						DevelopmentTeam = 9VPJYELQX8;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
 					};
 					AFE721441950E7F00082270D = {
 						TestTargetID = AFE721291950E7EF0082270D;
@@ -603,6 +696,7 @@
 				97D6A7FE1C0D6B91000F403E /* press_smartbridge.png in Resources */,
 				AFE721381950E7F00082270D /* InfoPlist.strings in Resources */,
 				2134517B1BDDBE7600BF5080 /* MainStoryboard.storyboard in Resources */,
+				971319611C4E0B970046FE25 /* CharacteristicCell.xib in Resources */,
 				AFE721401950E7F00082270D /* Images.xcassets in Resources */,
 				97D6A7F21C0D6B06000F403E /* PHBridgePushLinkViewController.xib in Resources */,
 				97D6A7FF1C0D6B91000F403E /* press_smartbridge@2x.png in Resources */,
@@ -672,24 +766,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971319441C4DD91D0046FE25 /* HMEventTrigger+Convenience.swift in Sources */,
+				9713195C1C4E0B5C0046FE25 /* AccessoryUpdateController.swift in Sources */,
 				2134518E1BDE1AAD00BF5080 /* MESettingsViewController.m in Sources */,
+				971319321C4DD8690046FE25 /* HomeStore.swift in Sources */,
+				971319491C4DD91D0046FE25 /* UIColor+Custom.swift in Sources */,
 				97D6A8111C0D76EB000F403E /* DDFileLogger.m in Sources */,
 				AFE7215E1950E8470082270D /* NestConnectViewController.m in Sources */,
 				AF26D5C3195210CC00450E99 /* NestControlsViewController.m in Sources */,
 				2134518C1BDE1AAD00BF5080 /* MEFoldAnimationController.m in Sources */,
+				971319431C4DD91D0046FE25 /* HMCharacteristic+Properties.swift in Sources */,
 				97D6A8101C0D76EB000F403E /* DDASLLogger.m in Sources */,
 				2134518B1BDE1AAD00BF5080 /* MEDynamicTransition.m in Sources */,
+				971319301C4DD7A70046FE25 /* HomeViewController.swift in Sources */,
+				971319461C4DD91D0046FE25 /* HMService+Properties.swift in Sources */,
 				AFE7213E1950E7F00082270D /* AppDelegate.m in Sources */,
 				AFE721661950E8890082270D /* UIColor+Custom.m in Sources */,
 				AF9CCB351954FC7200EE6D38 /* FirebaseManager.m in Sources */,
+				9713194B1C4DD91D0046FE25 /* UITableViewController+Convenience.swift in Sources */,
 				213451901BDE1AAD00BF5080 /* METransitionsViewController.m in Sources */,
 				213451911BDE1AAD00BF5080 /* MEZoomAnimationController.m in Sources */,
+				971319571C4E0B140046FE25 /* HMCatalogViewController.swift in Sources */,
 				213451941BDE1FB400BF5080 /* NestViewController.m in Sources */,
 				AF7BD6BE195DEFB500296A8C /* Constants.m in Sources */,
+				9713195D1C4E0B5C0046FE25 /* ModifyAccessoryViewController.swift in Sources */,
+				9713195B1C4E0B5C0046FE25 /* AccessoryBrowserViewController.swift in Sources */,
 				97D6A80F1C0D76EB000F403E /* DDAbstractDatabaseLogger.m in Sources */,
 				976844DB1BFD79FB00EA889A /* NestCameraManager.m in Sources */,
 				AFE7213A1950E7F00082270D /* main.m in Sources */,
 				2134518F1BDE1AAD00BF5080 /* METransitions.m in Sources */,
+				9713194C1C4DD91D0046FE25 /* UIViewController+Convenience.swift in Sources */,
+				971319481C4DD91D0046FE25 /* UIAlertController+Convenience.swift in Sources */,
 				2134519A1BE086A500BF5080 /* ThermosViewController.m in Sources */,
 				2134519D1BE0893A00BF5080 /* DrawerViewController.m in Sources */,
 				97D6A8121C0D76EB000F403E /* DDLog.m in Sources */,
@@ -702,17 +809,24 @@
 				97D6A81A1C0D770D000F403E /* DispatchQueueLogFormatter.m in Sources */,
 				213451A31BE215C800BF5080 /* SmokeCoAlarm.m in Sources */,
 				213451971BDF527E00BF5080 /* NestStructures.m in Sources */,
+				9713194A1C4DD91D0046FE25 /* UIStoryboardSegue+IntendedDestination.swift in Sources */,
 				97D6A8191C0D770D000F403E /* ContextFilterLogFormatter.m in Sources */,
 				AF26D6111952517200450E99 /* NestThermostatManager.m in Sources */,
 				97D6A7F11C0D6B06000F403E /* PHBridgePushLinkViewController.m in Sources */,
+				971319411C4DD91D0046FE25 /* CNMutablePostalAddress+Convenience.swift in Sources */,
 				AFE7217C1950FE2D0082270D /* AccessToken.m in Sources */,
+				971319421C4DD91D0046FE25 /* HMActionSet+BuiltIn.swift in Sources */,
 				213451A01BE2151B00BF5080 /* SmokeCoAlarmViewController.m in Sources */,
+				971319451C4DD91D0046FE25 /* HMHome+Properties.swift in Sources */,
 				97D6A7DE1C0D68B8000F403E /* PHControlLightsViewController.m in Sources */,
 				AF26D5C01951EC8C00450E99 /* NestWebViewAuthController.m in Sources */,
 				2134518D1BDE1AAD00BF5080 /* MEMenuViewController.m in Sources */,
+				971319401C4DD91D0046FE25 /* Array+Sorting.swift in Sources */,
+				971319601C4E0B970046FE25 /* CharacteristicCell.swift in Sources */,
 				213451A61BE2171200BF5080 /* NestSmokeCoAlarmManager.m in Sources */,
 				AF95AB381953281A006FD4A4 /* Thermostat.m in Sources */,
 				97D6A7FA1C0D6B7E000F403E /* PHLoadingViewController.m in Sources */,
+				971319631C4E0BD10046FE25 /* HomeKitObjectCollection.swift in Sources */,
 				976844D81BFD758B00EA889A /* CameraViewController.m in Sources */,
 				AF26D6141952606C00450E99 /* NestStructureManager.m in Sources */,
 			);
@@ -788,7 +902,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -820,7 +934,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -832,6 +946,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-NestDK/iOS-NestDK.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -843,10 +959,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.org.itri.nest-homekit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-NestDK/iOS-NestDK-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -858,6 +978,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-NestDK/iOS-NestDK.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -869,10 +991,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-NestDK/iOS-NestDK-Prefix.pch";
 				INFOPLIST_FILE = "iOS-NestDK/iOS-NestDK-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.org.itri.nest-homekit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-NestDK/iOS-NestDK-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
