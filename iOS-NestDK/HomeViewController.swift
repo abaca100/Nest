@@ -9,7 +9,7 @@
 import UIKit
 import HomeKit
 
-class HomeViewController: DrawerViewController, HMHomeDelegate, HMHomeManagerDelegate, HMAccessoryBrowserDelegate, HMAccessoryDelegate {
+class HomeViewController: DrawerViewController, HMHomeDelegate, HMHomeManagerDelegate, HMAccessoryBrowserDelegate, HMAccessoryDelegate, NestCameraManagerDelegate {
 
     // MARK: Properties
     var homeStore: HomeStore {
@@ -28,6 +28,10 @@ class HomeViewController: DrawerViewController, HMHomeDelegate, HMHomeManagerDel
     var updateValueTimer: NSTimer!
     var myAccessories = [HMAccessory]()
     var newTimer:dispatch_source_t!
+    
+    // Nest properties
+    var nestCameraManager = NestCameraManager()
+    var currentCamera: Camera?
 
     @IBOutlet weak var bedroom: UIButton!
     @IBOutlet weak var livingroom: UIButton!
@@ -69,10 +73,14 @@ class HomeViewController: DrawerViewController, HMHomeDelegate, HMHomeManagerDel
         
         accessoryBrowser =  HMAccessoryBrowser()
         accessoryBrowser?.delegate =  self
+        
+        nestCameraManager.delegate = self
+        loadStructure()
     }
     
     func contentChanged(str: String)
     {
+        /*
         txt_msg.text = txt_msg.text + str
         
         //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { [unowned self] in
@@ -86,6 +94,40 @@ class HomeViewController: DrawerViewController, HMHomeDelegate, HMHomeManagerDel
                 self.txt_msg.scrollRangeToVisible(range)
             });
         };
+        */
+    }
+    
+    func cameraValuesChanged(camera:Camera) {
+        print("cameraValuesChanged")
+        txt_msg.text = txt_msg.text + "\(__FUNCTION__)"
+        let l = self.txt_msg.text.characters.count
+        let range = NSMakeRange(1, l)
+        self.txt_msg.scrollRangeToVisible(range)
+    }
+    
+    func loadStructure() {
+        let data:NSData = (NSUserDefaults.standardUserDefaults().objectForKey("NEST") as? NSData)!
+        
+        if let structure = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSMutableArray {
+            for (var i=0; i<structure.count; i++) {
+                print("\(structure[i])")
+                if let nest = structure[i] as? NestStructures {
+                    if nest.name.hasPrefix("ITRI") {
+                        
+                        for (var j=0; j<nest.devices.count; j++) {
+                            
+                            if let key = nest.devices[j].objectForKey("cameras") {
+                                currentCamera?.cameraId = key as! String
+                                print("currentCamera?.cameraId=\(key)")
+                                nestCameraManager.beginSubscriptionForCamera(currentCamera)
+                                return
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     @IBAction func refresh(sender: UIBarButtonItem)

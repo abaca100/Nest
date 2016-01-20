@@ -3,3 +3,6 @@
 //
 
 #import "DrawerViewController.h"
+#import "NestCameraManager.h"
+#import "NestStructures.h"
+#import "FirebaseManager.h"
